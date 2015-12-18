@@ -1,0 +1,154 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[a4paper,top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+
+
+\newcommand{\tab}[1]{\hspace{.3\textwidth}\rlap{#1}}
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+
+\begin{document}
+
+\LARGE{\textbf{Indice}}
+\bigskip
+  
+\begin{enumerate}
+	\item \LARGE{\textbf{Leaflet}}
+		\begin{enumerate}
+			\Large
+			\item Introduzione
+			\item Caricamento mappa
+			\item Creazione dell'icona
+		\end{enumerate}
+	\bigskip 
+	\item \LARGE{\textbf{Libreria SPARQL per javascript}}
+		\begin{enumerate}
+			\Large
+			\item Introduzione
+			\item Collegamento con la libreria
+			\item Implementazione
+		\end{enumerate}
+\end{enumerate}
+
+\newpage
+
+\begin{enumerate}
+	\item \LARGE{\textbf{Leaflet}}
+		\begin{enumerate}
+			\Large
+			\item {Introduzione}\newline
+La realizzazione del portale è stata resa possibile grazie alle librerie fornite dal sito web Leaflet, accessibile digitando l'indirizzo url http://leafletjs.com/.
+			Leaflet è una moderna libreria open-source realizzata in JavaScript e ha lo scopo di rendere interattive le mappe per utilizzarle in qualsiasi piattaforma si voglia, che sia desktop o mobile. Lo sviluppatore di tale libreria è Vladimir Agafonkin che, con l'aiuto team di collaboratori dedicati, ha realizzato una semplice e versatile libreria con soli circa 33 KB di memoria, inoltre utilizzando la tecnologia \textbf{HTML5} e \textbf{CSS3} è accessibile sui browser moderni quali Chrome, Firefox, Safari e Internet Explorer. Può essere anche accessibile per i borwser più datati e ha anche una buona e facile documentazione on-line, infine ha un'estesa e vasta gamma di plugin, che si possono facilmente integrare rendendo il più compatto possibile e di facile intuzione.	
+			\medskip
+			\item Collegamento con la libreria\newline
+Per preparare il sito web con la mappa interattiva occorre realizzare le seguenti principali procedure:
+			\begin{itemize}
+				\item Inserire nel codice HTML nella sezione \textbf{head} il riferimento al file \textbf{"`leaflet.css"`}
+				\item Includere il file scritto in JavaScript \textbf{"`leaflet.js"'}
+				\item Inserire un elemento div che ha come parametro \textbf{"`id=map"'} nella sezione \textbf{body}
+				\item Settare attraverso la tecnologia CSS3 le caratteristiche della mappa attraverso l'id "`map"'.				
+			\end{itemize}
+Come mostrato in Figura 1 e in Figura 2
+
+			\begin{figure}[!ht]
+				\centering{\includegraphics[width=200px]{./Immagini/sezione_head.eps}}
+			\end{figure}
+			\tab {\textbf{Figura 1}}
+			\newpage
+			\begin{figure}[!ht]
+				\centering{\includegraphics[width=200px]{./Immagini/sezione_body.eps}}
+			\end{figure}
+			\tab{\textbf{Figura 2}}
+				\newline				
+			\medskip
+			
+Il secondo passaggio è quello di creare una mappa interattiva, per farlo occorre collegarsi al sito \textbf{www.mapbox.com}, che fornisce un portale gratuito per creare o modificare una mappa secondo le caratteristiche che si vogliono.\newline
+Per fare questo occorre registrarsi al sito web fornendo:
+			\smallskip
+			\begin{itemize}
+				\item Username
+				\item Cognome
+				\item Nome
+				\item Email
+				\item Password
+			\end{itemize}
+			\smallskip
+			\medskip
+Una volta effettuato l'accesso bisogna andare sulla sezione \textbf{Project} e cliccare sul pulsante \textbf{Create Project}, in questo modo creerà una nuova mappa da poter modellare a seconda delle proprie necessità.\newline
+Sul pannello in alto a sinistra è indicata la consolle per modellare la mappa. Con il pannello \textbf{Style} possiamo scegliere i colori delle strade, dell'acqua, della terra e pianure e dello sfondo.\newline
+Sul pannello \textbf{Data}, invece, possiamo decidere se aggiungere marker, poligoni o linee. Di default verrà utilizzato il colore blue.
+Infine sull'ultimo pannello, chiamato \textbf{Project} sono indicate tutti i parametri che servono per caricare la mappa sul portale web, come ad esempio il campo Map ID.
+Sistemate tutte le modifiche per confermare il progetto della mappa cliccare sul pulsante Save.\newline
+In Figura 3 sono mostrate tutti i pannelli con i relativi campi.
+			\newpage
+			\begin{figure}[!ht]
+				\centering{\includegraphics[width=500px]{./Immagini/Create_map.eps}}
+			\end{figure}
+			\tab{\textbf{Figura 3}}
+				\newline				
+			\medskip
+			
+Per inserire la mappa sul codice sorgente e caricarla nella pagina web, bisogna inizializzarla fornendo le coordinate geografiche della posizione e il livello dello zoom.
+Tali informazioni sono reperibile sul sito \textbf{www.mapbox.com} in basso a sinistra come mostrato in Figura 4, e devono essere insirite nella sezione body della file \textbf{index.html}.
+			\begin{figure}[!ht]
+				\centering{\includegraphics[width=200px]{./Immagini/coordinate.eps}}
+			\end{figure}
+			
+			\tab{\textbf{Figura 4}}
+				\newline
+	
+Il codice che bisogna inserire è il seguente:
+			\begin{figure}[!ht]
+				\centering{\includegraphics[width=350px]{./Immagini/inserted_map.eps}}
+			\end{figure}
+			
+			\tab{\textbf{Figura 5}}
+				\newline
+				
+Dalla Figura 5 si evince che all'interno delle parentesi, sono inserite le coordinate geografiche presenti nella Figura 4, inoltre lo script utilizzato è sempre JavaScript.
+Il prossimo passaggio è quello di inserire la mappa utilizzando il comando \textbf{tileLayer}. Tale comando permette di inserire la mappa creata sul sito di Mapbox, definendo lo zoom massimo possibile, gli attributi e l'identificativo della mappa.\newline
+Di seguito abbiamo il codice sorgente:
+			\begin{figure}[!ht]
+				\centering{\includegraphics[width=350px,height=150px]{./Immagini/tileLayer.eps}}
+			\end{figure}
+			
+			\tab{\textbf{Figura 6}}
+				\newline
+
+Sulla Figura 6 è indicato il codice da digitare per il carimento della mappa, si nota che nella prima voce è indicato il collegamento ipertestuale della mappa, alla voce \textbf{attributes} sono indicate le licenze, mentre alla voce \textbf{id}, è specificato l'identificativo della nostra mappa, che si ricava dal sito Mapbox alla sezione \textbf{Project} come mostrato in Figura 3 alla voce Map ID.\newline
+Seguendo le procedure appena indicate, la mappa verrà ricavata correttamente nella nostra pagina web.
+		\medskip
+		\item {Creazione dell'icona}\newline
+Attraverso il metodo \textbf{L.Icon} è possibile creare un icona che identifica un determinato punto della mappa. Per prima cosa occorre scegliere un'immagine, dopodiché attraverso \textbf{iconUrl} è possibile caricarla specificando il percorso del file; se si dispone anche di un immagine con l'ombra bisogna caricarla con \textbf{shadowUrl} sempre specificando il percorso del file. Infine bisogna specificare la grandezza dell'icona e dell'ombra, attraverso i parametri \textbf{iconSize} e \textbf{shadowSize} come è evidenziato nella Figura 7.
+			\newpage
+			\begin{figure}[!ht]
+				\centering{\includegraphics[width=400px,height=200px]{./Immagini/L_icon.eps}}
+			\end{figure}
+			
+			\tab{\textbf{Figura 7}}
+			\newline
+
+Fatto questo inseriamo l'icona sulla mappa specificando le coordinate geografiche e la variabile \textbf{iconBlue} attraverso il metodo \textbf{L.marker}
+
+			\begin{figure}[!ht]
+				\centering{\includegraphics[width=400px,height=200px]{./Immagini/L.marker.eps}}
+			\end{figure}
+			
+			\tab{\textbf{Figura 8}}
+			\newline
+		\end{enumerate}
+	\newpage
+	\item \LARGE{\textbf{Libreria SPARQL per javascript}}
+		\begin{enumerate}
+			\Large
+			 
+			\item {Introduzione}\newline
+			\item {Collegamento con la libreria}\newline
+			\item {Implementazione}\newline
+		
+		\end{enumerate}
+\end{enumerate}
+\end{document}
