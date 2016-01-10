@@ -2,37 +2,202 @@
 
 \usepackage[a4paper,top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
 \usepackage[T1]{fontenc}
-\usepackage[italian]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+\usepackage{lmodern}% http://ctan.org/pkg/lm
 
+\graphicspath{{./Immagini/}} 
 
 \newcommand{\tab}[1]{\hspace{.3\textwidth}\rlap{#1}}
 \newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
 
+
 \begin{document}
+
+\begin{figure}[!htbp]
+\centering	
+	\mbox{%
+		\begin{minipage}{.10\textwidth}
+			\includegraphics[scale=0.20]{Immagini/unict.jpg} 
+		\end{minipage}%
+		\quad
+		\begin{minipage}[c]{.60\textwidth}
+			\centering
+			\Large Universit\`{a} degli Studi di Catania
+			
+			\Large Dipartimento di Matematica e Informatica
+			
+			\Large Corso di Laurea in Informatica triennale
+			
+		\end{minipage}
+	}
+\end{figure}
+
+\begin{center}
+	\hrule
+\end{center}
+
+\vspace*{50pt}
+
+\begin{center}
+	\LARGE Andrea Costazza
+\end{center}
+
+\vspace*{30pt}
+
+\begin{center}
+	\LARGE \textbf{Titolo:}
+
+	\LARGE \textbf{sottotitolo}
+\end{center}
+
+\vspace*{80pt}
+
+\noindent\hfil\rule{0.2\textwidth}{.4pt}\hfil
+
+\begin{center}
+	\Large Relazione progetto finale
+\end{center}
+
+\noindent\hfil\rule{0.2\textwidth}{.4pt}\hfil
+
+\vspace*{180pt}
+
+\begin{flushright}
+	\Large Relatore
+
+	\Large \textbf {Prof. Domenico Cantone}
+\end{flushright}
+
+\bigskip
+\bigskip
+
+\hrule
+
+\begin{center}
+	\Large Anno Accademico 2015/16
+\end{center}
+
+\newpage
+
+\begin{figure}[!htbp]
+\centering	
+	\mbox{%
+		\begin{minipage}{.10\textwidth}
+			\includegraphics[scale=0.20]{Immagini/unict.jpg} 
+		\end{minipage}%
+		\quad
+		\begin{minipage}[c]{.60\textwidth}
+			\centering
+			\Large Universit\`{a} degli Studi di Catania
+			
+			\Large Dipartimento di Matematica e Informatica
+			
+			\Large Corso di Laurea in Informatica triennale
+			
+		\end{minipage}
+	}
+\end{figure}
+
+\begin{center}
+	\hrule
+\end{center}
+
+\vspace*{50pt}
+
+\begin{center}
+	\LARGE Andrea Costazza
+\end{center}
+
+\vspace*{30pt}
+
+\begin{center}
+	\LARGE \textbf{Titolo:}
+
+	\LARGE \textbf{sottotitolo}
+\end{center}
+
+\vspace*{80pt}
+
+\noindent\hfil\rule{0.2\textwidth}{.4pt}\hfil
+
+\begin{center}
+	\Large Relazione progetto finale
+\end{center}
+
+\noindent\hfil\rule{0.2\textwidth}{.4pt}\hfil
+
+\vspace*{180pt}
+
+\begin{flushright}
+	\Large Relatore
+
+	\Large \textbf {Prof. Domenico Cantone}
+\end{flushright}
+
+\bigskip
+\bigskip
+
+\hrule
+
+\begin{center}
+	\Large Anno Accademico 2015/16
+\end{center}
+
+\newpage
+\null
+\thispagestyle{empty}
+
+\newpage
 
 \LARGE{\textbf{Indice}}
 \bigskip
   
 \begin{enumerate}
-	\item \LARGE{\textbf{Leaflet}}
+	\item \LARGE{\textbf{Web Semantico}}
 		\begin{enumerate}
 			\Large
-			\item Introduzione
-			\item Caricamento mappa
-			\item Creazione dell'icona
+			\item Introduzione.
+			\item Resource Description Framework (RDF).
+			\item Logiche descrittive.
+		\end{enumerate}
+	\bigskip
+	\item \LARGE{\textbf{Mappe on-line per siti web}}
+		\begin{enumerate}
+			\Large
+			\item Leaflet.
+			\item Caricamento mappa.
+			\item Creazione delle icone, dei markers e dei popups.
 		\end{enumerate}
 	\bigskip 
-	\item \LARGE{\textbf{Libreria SPARQL per javascript}}
+	\item \LARGE{\textbf{SPARQL}}
 		\begin{enumerate}
 			\Large
-			\item Introduzione
-			\item Collegamento con la libreria
-			\item Implementazione
+			\item Introduzione.
+			\item Il modello Turtle.
+			\item Libreria javascript per interrogazioni SPARQL.
+		\end{enumerate}
+	\bigskip 
+	\item \LARGE{\textbf{Ontologie per la rappresentazione dei servizi pubblici}}
+		\begin{enumerate}
+			\Large
+			\item Menù gerarchici.
+			\item Codifica JSON.
+			\item Chiamata AJAX.
+		\end{enumerate}
+	\bigskip 
+	\item \LARGE{\textbf{Presentazione e codice dell'applicazione}}
+		\begin{enumerate}
+			\Large
+			\item Programmi utilizzati.
+			\item HTML.
+			\item Javascript.
+			\item Css.
 		\end{enumerate}
 \end{enumerate}
-
+\bigskip 
+		
+\textbf {Appendice} Il problema delle richieste Cross-Domain.
 \newpage
 
 \begin{enumerate}
@@ -54,12 +219,12 @@ Per preparare il sito web con la mappa interattiva occorre realizzare le seguent
 Come mostrato in Figura 1 e in Figura 2
 
 			\begin{figure}[!ht]
-				\centering{\includegraphics[width=200px]{./Immagini/sezione_head.eps}}
+				
 			\end{figure}
 			\tab {\textbf{Figura 1}}
 			\newpage
 			\begin{figure}[!ht]
-				\centering{\includegraphics[width=200px]{./Immagini/sezione_body.eps}}
+				
 			\end{figure}
 			\tab{\textbf{Figura 2}}
 				\newline				
@@ -85,7 +250,7 @@ Sistemate tutte le modifiche per confermare il progetto della mappa cliccare sul
 In Figura 3 sono mostrate tutti i pannelli con i relativi campi.
 			\newpage
 			\begin{figure}[!ht]
-				\centering{\includegraphics[width=500px]{./Immagini/Create_map.eps}}
+				
 			\end{figure}
 			\tab{\textbf{Figura 3}}
 				\newline				
@@ -94,7 +259,7 @@ In Figura 3 sono mostrate tutti i pannelli con i relativi campi.
 Per inserire la mappa sul codice sorgente e caricarla nella pagina web, bisogna inizializzarla fornendo le coordinate geografiche della posizione e il livello dello zoom.
 Tali informazioni sono reperibile sul sito \textbf{www.mapbox.com} in basso a sinistra come mostrato in Figura 4, e devono essere insirite nella sezione body della file \textbf{index.html}.
 			\begin{figure}[!ht]
-				\centering{\includegraphics[width=200px]{./Immagini/coordinate.eps}}
+			
 			\end{figure}
 			
 			\tab{\textbf{Figura 4}}
@@ -102,7 +267,7 @@ Tali informazioni sono reperibile sul sito \textbf{www.mapbox.com} in basso a si
 	
 Il codice che bisogna inserire è il seguente:
 			\begin{figure}[!ht]
-				\centering{\includegraphics[width=350px]{./Immagini/inserted_map.eps}}
+				
 			\end{figure}
 			
 			\tab{\textbf{Figura 5}}
@@ -112,7 +277,7 @@ Dalla Figura 5 si evince che all'interno delle parentesi, sono inserite le coord
 Il prossimo passaggio è quello di inserire la mappa utilizzando il comando \textbf{tileLayer}. Tale comando permette di inserire la mappa creata sul sito di Mapbox, definendo lo zoom massimo possibile, gli attributi e l'identificativo della mappa.\newline
 Di seguito abbiamo il codice sorgente:
 			\begin{figure}[!ht]
-				\centering{\includegraphics[width=350px,height=150px]{./Immagini/tileLayer.eps}}
+				
 			\end{figure}
 			
 			\tab{\textbf{Figura 6}}
@@ -125,7 +290,7 @@ Seguendo le procedure appena indicate, la mappa verrà ricavata correttamente ne
 Attraverso il metodo \textbf{L.Icon} è possibile creare un icona che identifica un determinato punto della mappa. Per prima cosa occorre scegliere un'immagine, dopodiché attraverso \textbf{iconUrl} è possibile caricarla specificando il percorso del file; se si dispone anche di un immagine con l'ombra bisogna caricarla con \textbf{shadowUrl} sempre specificando il percorso del file. Infine bisogna specificare la grandezza dell'icona e dell'ombra, attraverso i parametri \textbf{iconSize} e \textbf{shadowSize} come è evidenziato nella Figura 7.
 			\newpage
 			\begin{figure}[!ht]
-				\centering{\includegraphics[width=400px,height=200px]{./Immagini/L_icon.eps}}
+				
 			\end{figure}
 			
 			\tab{\textbf{Figura 7}}
@@ -134,7 +299,7 @@ Attraverso il metodo \textbf{L.Icon} è possibile creare un icona che identifica
 Fatto questo inseriamo l'icona sulla mappa specificando le coordinate geografiche e la variabile \textbf{iconBlue} attraverso il metodo \textbf{L.marker}
 
 			\begin{figure}[!ht]
-				\centering{\includegraphics[width=400px,height=200px]{./Immagini/L.marker.eps}}
+				
 			\end{figure}
 			
 			\tab{\textbf{Figura 8}}
