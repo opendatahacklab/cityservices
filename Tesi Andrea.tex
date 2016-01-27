@@ -13,7 +13,8 @@
 \usepackage{mathtools}
 \usepackage{xspace}
 \usepackage{amssymb}
-
+\usepackage[T1]{fontenc} 
+\usepackage{microtype}
 
 \graphicspath{{./Immagini/}} 
 
@@ -39,7 +40,7 @@
 \begin{document}
 
 \begin{figure}[!htbp]
-\centering	
+	\centering	
 	\mbox{%
 		\begin{minipage}{.10\textwidth}
 			\includegraphics[scale=0.20]{Immagini/unict.jpg} 
@@ -47,14 +48,11 @@
 		\quad
 		\begin{minipage}[c]{.60\textwidth}
 			\centering
-			\Large Universit\`{a} degli Studi di Catania
-			
-			\Large Dipartimento di Matematica e Informatica
-			
-			\Large Corso di Laurea in Informatica triennale
-			
+			\Large Universit\`{a} degli Studi di Catania			
+			\Large Dipartimento di Matematica e Informatica			
+			\Large Corso di Laurea in Informatica triennale			
 		\end{minipage}
-		}
+	}
 \end{figure}
 
 \begin{center}
@@ -70,9 +68,8 @@
 \vspace*{30pt}
 
 \begin{center}
-	\LARGE \textbf{Titolo:}
+	\LARGE \textbf{Librerie JavaScript per il trattamento di ontologie del Web Semantico con informazioni geolocalizzate}
 
-	\LARGE \textbf{sottotitolo}
 \end{center}
 
 \vspace*{80pt}
@@ -105,7 +102,7 @@
 \begin{center}
 	\Large Anno Accademico 2015/16
 \end{center}
-
+\thispagestyle{empty}
 \newpage
 
 \begin{figure}[!htbp]
@@ -140,10 +137,10 @@
 \vspace*{30pt}
 
 \begin{center}
-	\LARGE \textbf{Titolo:}
+	\LARGE \textbf{Librerie JavaScript per il trattamento di ontologie del Web Semantico con informazioni geolocalizzate}
 
-	\LARGE \textbf{sottotitolo}
 \end{center}
+
 
 \vspace*{80pt}
 
@@ -176,7 +173,7 @@
 \begin{center}
 	\Large Anno Accademico 2015/16
 \end{center}
-
+\thispagestyle{empty}
 \newpage
 \null
 \thispagestyle{empty}
@@ -187,6 +184,8 @@
 \bigskip
   
 \begin{enumerate}
+	\item \LARGE{\textbf{Introduzione}}
+	\bigskip
 	\item \LARGE{\textbf{Web Semantico}}
 		\begin{enumerate}[label*=\arabic*.]
 			\Large
@@ -235,8 +234,9 @@
 		
 \textbf {Appendice} Link utili, Siti utilizzati e Ringraziamenti.
 \newpage
-
 \begin{enumerate}
+	\item \LARGE{\textbf{Introduzione}}
+	\newpage
 	\item \LARGE{\textbf{Web Semantico}}
 		\begin{enumerate}[label*=\arabic*.]
 			\Large
@@ -320,7 +320,7 @@ Un' altra caratteristica importante del modello RDF e che è le risorse possono 
 				\item \textbf{Sequence}, a differenza di Bag, l'insieme è ordinato.
 				\item \textbf{Alternative}, è una lista di risorse che definiscono un'alternativa per il valore singolo di una proprietà\footnote{Fonte Wikipedia.}
 			\end{itemize}\newpage		
-Per rappresentare semanticamente il modello RDF, si ha bisogno di una estensione chiamata \textbf{RDF Schema}, che fornisce meccanismi per gruppi di risorse correlate e descrive le risorse con le classi, proprietà e valori. Il sistema di classi e delle proprietà di RDF Schema è simile al linguaggio Java e fornisce elementi di base per la descrizione delle ontologie, per vincolare domini e codomini delle relazioni, definire classi di oggetti e relazioni tra classi.
+Per rappresentare semanticamente il modello RDF, si utilizza un'estensione chiamata \textbf{RDF Schema}, che fornisce meccanismi per gruppi di risorse correlate e descrive le risorse con le classi, proprietà e valori. Il sistema di classi e delle proprietà di RDF Schema è simile al linguaggio Java e fornisce elementi di base per la descrizione delle ontologie, per vincolare domini e codomini delle relazioni, definire classi di oggetti e relazioni tra classi.
 Nelle seguenti tabelle viene descritto le classi e le proprietà utilizzate dal RDF Schema:	\newline
 		
 		\begin{table}[htb]
@@ -464,7 +464,8 @@ $\Q$: si introducono i costruttori$\geq nR.C$, $\leq nR.C$, detti restrizioni qu
 \begin{center}
 		$(\geq nR.C)^{\I}=\{a \in \Delta^{I}|\#\{b \in C^{I} |[a,b] \in R^{\I}\}\geq n\}$\newline$(\leq nR.C)^{\I}=\{a \in \Delta^{I}|\#\{b \in C^{I} |[a,b] \in R^{\I}\}\leq n\}$\newline
 \end{center}
-$\Onom$: si introducono gli insiemi finiti di elementi detti nominals ($\{a\} o \{a_1,...a_n\} $) interpretati come segue:
+$\Onom$: si introducono gli insiemi finiti di elementi 
+detti nominals ($\{a\} o \{a_1,...a_n\} $) interpretati come segue:
 \begin{center}
 $\{a\}^{\I}=\{a^{\I}\}$
 \end{center}
@@ -611,7 +612,7 @@ L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png',{
         maxZoom: 18,
         attribution: 'Map data &copy; 
   <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,'+
-  '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>,'+
+ '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>,'+
 	'Imagery c <a href="http://mapbox.com">Mapbox</a>',
 	id: 'andreacostazza.ik9ap86i'
 	}).addTo(map);
@@ -719,7 +720,8 @@ function createSparqlQuery(endpoint,query,map,callback){
  xmlhttp.open('POST', endpoint, true); 
  xmlhttp.setRequestHeader('Content-type',
  	'application/x-www-form-urlencoded');
- xmlhttp.setRequestHeader("Accept", "application/sparql-results+json");	
+ xmlhttp.setRequestHeader("Accept", 
+  "application/sparql-results+json");	
  xmlhttp.onreadystatechange = function() {
   if(xmlhttp.readyState==4 ){
    if(xmlhttp.status==200){				
@@ -743,10 +745,321 @@ Basta scrivere la query utilizzando la nomenclatura dello SPARQL descritta prece
 		\item \LARGE{\textbf{Ontologie per la rappresentazione dei servizi pubblici}}
 		\begin{enumerate}[label*=\arabic*.]
 			\Large
-			\item Menù gerarchici.
-			\item Linked Open Data per i servizi pubblici
-			\item Codifica JSON.
-			\item Chiamata AJAX.
+			\item Menù gerarchici.\newline
+			Un menu gerarchico è una struttura ad albero che simula l'aspetto e il comportamento della struttura a cartelle e sottocartelle utilizzato in tutti i S.O.\footnote{Sistemi Operativi.}. Questo tipo di menù viene utilizzato nella stragrande maggioranza dei siti web proprio perché è facile da implementare e non occupa moltissimo spazio, inoltre in questo modo si possono realizzare strutture annidate e complesse ricche di voci, che sono ideali per l'organizzazione.\newline 
+Nel progetto il menù gerarchico è creato dinamicamente, cioè ad ogni valore che viene passato si controlla il genitore e i figli associati.
+Per comprendere meglio elenchiamo i metodi e le classi, realizzati in Javascript, per la creazione del menù:
+
+	\begin{itemize}
+		\item Classe \textbf{Tree}, che implementa l'albero N-ario\footnote{Albero con n figli}. Un albero N-ario ha i due elementi fondamentali che sono la \textbf{radice}\footnote{Root.} che ha n nodi che vengono chiamati figli e le \textbf{foglie}\footnote{Leaf.} che sono i nodi senza figli. Tutti gli altri nodi vengono chiamati nodi interni\footnote{Fonte Wikipedia}.
+		La classe Tree	ha le seguenti variabili:
+		\begin{itemize}
+			\item \textbf{value}: può essere qualsiasi valore, in questo progetto la si associa ad un indirizzo URI/IRI o a un nome della gerarchia o a una struttura complessa contenete sia URI che nomi;
+			\item \textbf{children}: un array\footnote{Struttura dati complessa, composto da celle di lunghezza n.}, contenente i figli di un nodo.
+		\end{itemize}
+		e i seguenti metodi
+		\begin{itemize}
+			\item \textbf{addChild(value)}: aggiunge ad un nodo un figlo
+			\item \textbf{getChild()}: stampa a video di tutti i figli di un nodo
+			\item \text{preOrder(), postOrder()}: metodi utilizzati per la visita dell'albero
+			\item \textbf{high(), frontier()}: metodi informativi dell'albero
+		\end{itemize}
+	
+			
+	\item Classe \textbf{Description}, struttura dati complessa che contiene tre variabili che sono:
+		\begin{itemize}
+			\item \textbf{uri}: Indirizzo IRI/URI di un valore;
+			\item \textbf{name}: Nome di un valore;
+			\item \textbf{homepage}: Indirizzi IRI/URI che si collega alla pagina principale del sito web.
+		\end{itemize}
+	
+	i metodi di tale classe sono:
+		\begin{itemize}
+			\item \textbf{getUri()}: Restituisce il valore di uri;
+			\item \textbf{getName()}: Restituisce il valore di name;
+			\item \textbf{getHomepage()} Restituisce il valore di homepage;
+		\end{itemize}
+	\item Classe \textbf{Storage}, che è un contenitore di tutti i nodi, compresa la radice con i seguenti metodi:
+		\begin{itemize}
+		\item add(Description): istanza classe Tree(crea nodo all'interno dello storage);
+		\item get(Uri): restituisce nodo con la URI, se esiste; altrimenti NULL;
+		\item getTrees(): restituisce tutte le foglie.
+		\end{itemize}
+\end{itemize}	
+Il menù gerarchico nel progetto è creato sfruttando le classi appena elencate, in più è arricchito con due metodi che sono:
+	\begin{itemize}
+		\item \textbf{createLiMenu()}, che crea un lista utilizzando i tag:
+		\begin{itemize}
+			\item <ul> definisce una lista non ordinata.
+			\item <li> creare la liste non ordinate, è sempre associato al tag <ul>
+		\end{itemize}
+		\item \textbf{createMenu()}, che crea il menu dinamico.
+	\end{itemize}
+Di seguito viene specificato, attraverso lo pseudo-codice, la creazione di tale menu:\newline
+\textbf{Pseudo codice}
+	\begin{itemize}
+	\item Attraverso la chiamata AJAX e la codifica JSON otteniamo i dati dalla base di conoscenza;
+	\item Vengono create le variabili parent e child;
+	\item A parent viene associato il nodo, mentre a child il figlio;
+	\item Per ogni coppia di parent e child:
+		\begin{itemize}
+		\item ricerca di parent all'interno di Storage; 
+		\item se lo trova va avanti, altrimenti lo crea(metodo add di Storage);
+		\item ricerca di child all'interno di Storage;
+		\item se lo trova va avanti, altrimenti lo crea(metodo add di Storage);
+		\item associa child a parent;
+		
+		\end{itemize}		
+	\item restituisce l'albero dallo Storage;
+	\item crea il menu attraverso il metodo createLiMenu.
+	\end{itemize} \newpage	
+Il risultato sarò il seguente menù:
+			\begin{center}
+				\includegraphics[scale=0.5]{menu.png}\newline
+				\textbf{Figura 7.} Il menù gerarchico del progetto.
+			\end{center}
+			\item Linked Open Data per i servizi pubblici.\newline
+L’Agenzia per l’Italia Digitale (AgID\footnote{www.agid.gov.it}) ha l'obiettivo di pubblicare dati e documenti relativi ai servizi, alla struttura e alle attività svolte sul sito e di fornire a pubbliche amministrazioni, imprese e cittadini le tecniche utilizzate dal Web Semantico. In pratica vengono forniti vocabolari, sviluppati tramite la pubblicazione \textbf{Linked Open Data}. Tale metodo consiste nello strutturare i dati in modo da poter essere interconnessi e diventare più utili attraverso delle interrogazioni, fatte per esempio dallo linguaggio SPARQL. 
+Nella tabella successiva vengono indicati alcuni dei principali vocabolari utilizzati.
+
+\begin{table}[!htbp]
+		\begin{center}				
+		\begin{tabular}{|>{\small}l|>{\small}l|>{\small}l|}
+				\hline
+				\textbf{Vocabolario} & \textbf{Namespace} & \textbf{URL}\\				
+				\hline
+				Friend Of A Friend & foaf & http://xmlns.com/foaf/spec/.\\
+				\hline
+				Core Location & locn & http://www.w3.org/ns/locn.\\
+				\hline
+				Organization Ontology & org & http://www.w3.org/TR/vocab-org/\\
+				\hline			
+		\end{tabular}	
+		\caption{Tabella Vocabolari.}	
+		\end{center}	
+	\end{table}
+Analizzeremo in dettaglio i vocabolari \textbf{Core Location} e \textbf{Organization Ontology}.
+	\newpage
+	Il \textbf{Core Location} è un vocabolario utilizzato per rappresentare qualsiasi luogo in termini di nome, di indirizzo o di coordinate. Tale vocabolario fa parte del progetto \textbf{ISA}\footnote{Interoperability Solutions for European Public Administrations. http://ec.europa.eu/isa/}. L'idirizzo URI utilizzato è
+	
+\medskip
+
+http://www.w3.org/ns/locn\# ed usa il prefisso \textbf{locn}
+
+\medskip
+
+Il vocabolario è composto da tre classi che sono:
+\begin{itemize}
+	\item \textbf{Location}: utilizzata per identificare luoghi, città, stati.  
+	\item \textbf{Address}: utilizzata per gli indirizzi.\newline
+	Questa classe fa riferimento anche ad altre informazioni quali la casella postale, al numero civico, al codice di avviamento postale e così via.
+	\item \textbf{Geometry}: fornisce latitudine e longitudine 
+\end{itemize} 
+
+	\textbf{Organization Ontology}, invece, è utilizzato per modellare le pubbliche amministrazioni, fornendo indicazioni relative ad organizzazioni, membri, macrostrutture e strutture fisiche.
+L'idirizzo URI utilizzato è
+	
+\medskip
+
+http://www.w3.org/TR/vocab-org/\# ed usa il prefisso \textbf{org}
+
+\medskip
+
+La classe principale è \textbf{Organizzation} che scompone le organizzazioni in strutture gerarchiche.
+Mentre la classe \textbf{FormalOrganizzation} scompone un'organizzazione che è riconosciuta in tutto il mondo, come ad esempio i governi.
+Per rappresentare un'organizzazione, come ad esempio un dipartimento o unità di supporto, che è parte di una organizzazione più grande si usa la classe \textbf{OrganizationalUnit}.
+Organization Ontology estende e utilizza termini da altri vocabolari, riportati nella seguente tabella:
+\begin{table}[!htb]
+		\begin{center}				
+		\begin{tabular}{|>{\small}l|>{\small}l|}
+				\hline
+				\textbf{Prefisso} & \textbf{Namespace}\\				
+				\hline
+				foaf & http://xmlns.com/foaf/0.1/\\
+				\hline
+				gr & http://purl.org/goodrelations/v1\#\\
+				\hline
+				prov & http://www.w3.org/ns/prov\#\\
+				\hline
+				owl & http://www.w3.org/2002/07/owl\#\\
+				\hline
+				rdf & http://www.w3.org/1999/02/22-rdf-syntax-ns\#\\
+				\hline
+				rdfs & http://www.w3.org/2000/01/rdf-schema\#\\			
+				\hline
+				time & http://www.w3.org/2006/time\#\\
+				\hline
+				skos & http://www.w3.org/2004/02/skos/core\#\\					
+				\hline
+				vcard & http://www.w3.org/2006/vcard/ns\#\\											\hline
+				dct & http://purl.org/dc/terms/\\			
+				\hline
+		\end{tabular}	
+		\caption{Tabella degli stati di XMLHttpRequest.}	
+		\end{center}	
+	\end{table}\newpage
+Tali vocabolari servono per organizzare al meglio la struttura organizzativa di aziende, società e comuni.
+Nel progetto è stato utilizzato un vocabolario creato dal \textbf{Dott.Cristiano Longo} che fa riferimento allo macro struttura del Comune di Catania.
+Tale vocabolario si trova al seguente sito:
+\medskip
+
+http://dydra.com/cristianolongo/comune-di-catania/sparql.
+
+\medskip
+
+Tramite questo endpoint, si fa una specifica interrogazione in SPARQL, attraverso una chiamata AJAX. I dati ottenuti sono codificati tramite la codifica JSON.
+			
+			\item Codifica JSON.\newline
+La codifica JSON\footnote{JAVASCRIPT Object Notatio} è un formato convenzionale che serve per lo scambio di dati fra client e server. Ha la stessa nomenclatura dell'XML, ma  a differenza di quest'ultimo, è molto leggero da analizzare, ed è anche molto semplice da realizzare.
+Il JSON è scritto interamente in JavaScript ed è  utilizzato, principalmente, per le chiamate AJAX\footnote{Vedi Paragrafo successivo}. I dati della codifica JSON possono essere di qualunque tipo i principali valori sono:
+\begin{itemize}
+	\item boolean
+	\item stringhe
+	\item interi 
+	\item array sia semplici che associativi
+	\item null
+\end{itemize} 
+Quindi tale codifica può essere utilizzata in un qualsiasi linguaggio di programmazione.
+Inoltre è facilmente leggibile da quasi tutti i browser moderni, visto che hanno il supporto nativo a JSON, mentre per quelli sprovvisti occorre utilizzare il comando \textbf{eval}. \newline Di seguito vediamo un esempio di codifica JSON
+	\begin{figure}[htb]
+		\centering
+		\begin{lstlisting}[language=HTML, basicstyle=\large]
+{
+  "uri": "www.example.com",
+  "name": "Example",
+  "comment": "A example page",
+  "group": [
+    {
+      "firstUri": "www.example1.com",
+      "firstValue": "Example1",
+      "firstComment": "First example page"       
+    },   
+    {
+      "second_uri": "www.example2.com",
+      "second_value": "Example2" ,
+      "second_comment": "Second example page"
+    }
+  ]
+}
+		\end{lstlisting}
+ \end{figure}\newline
+Ogni dato ha la forma coppia ``nome'' : ``valore'', ed è separato dall'altro tramite la virgola e, inoltre sia i nomi che i valori sono racchiusi tra doppie virgolette.\newpage
+Le parentesi graffe contengono oggetti: \newline \{``firstUri'': ``www.example1.com'',``firstValue'': ``Example1'',\newline ``firstComment'':``First example page''   \} \newline
+Le parentesi quadre contengono array: \newline ``group'': [\{``firstUri'':``www.example1.com'',``firstValue'': ``Example1'',\newline ``firstComment'': ``First example page''\},\newline\{``secondUri'': ``www.example2.com'',``secondValue'': ``Example2'', \newline ``secondComment'': ``Second example page''\}]
+
+			\item Chiamata AJAX.\newline
+			Il metodo AJAX\footnote{Asynchronous JAVASCRIPT and XML} è stato creato da Jesse Garrett ed è un modo di riutilizzare gli standard internet esistenti. 
+Attraverso il linguaggio di Javascript, che si interfaccia con XML, un \textbf{client}\footnote{Indica una componente che accede ai servizi o alle risorse di un'altra componente detta server. Fonte Wikipedia} richiama le informazioni in modo veloce e trasparente, cioè in maniera asincrona. Per effettuare una chiamata AJAX abbiamo bisogno di un oggetto specifico chiamato \textbf{XMLHttpRequest} che serve per lo scambio di dati in modo asincrono con un server.
+Tale oggetto viene utilizzato nel progetto dal metodo \textbf{getHTTPObject()}
+di cui riportiamo il codice:
+\begin{figure}[htb]
+\begin{lstlisting}[language=HTML, basicstyle=\large]
+function getHTTPObject(){
+var xmlhttp;
+if(!xmlhttp && typeof XMLHttpRequest != 'undefined'){
+ try{
+  // Code for old browser
+  xmlhttp=new ActiveXObject('Msxml2.XMLHTTP');
+ }
+ catch(err){
+  try{
+   // Code for IE6, IE5
+   xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  catch(err2){
+   try{
+	 // Code for IE7+, Firefox, Chrome, Opera, Safari
+	 xmlhttp=new XMLHttpRequest();
+   }
+   catch(err3){
+    xmlhttp=false
+   }
+  }			
+ }
+}
+ return xmlhttp;
+}		
+\end{lstlisting}
+\end{figure}\newline
+Ogni Browser web ha la sua richiesta, nel caso di Browser datati, come IE\footnote{Internet Explorer}, l'oggetto XMLHttpRequest, viene restituito da \textbf{ActiveXObject}, mentre i moderni browser tale oggetto è supportato nativamente.\newline
+Per inviare una richiesta ad un server, bisogna utilizzare il seguente codice:
+\begin{figure}[htb]
+\begin{lstlisting}[language=HTML, basicstyle=\large]
+var xmlhttp = getHTTPObject();
+//Include POST OR GET
+xmlhttp.open('POST', endpoint, true); 
+xmlhttp.setRequestHeader('Content-type',
+  'application/x-www-form-urlencoded');
+xmlhttp.setRequestHeader("Accept", 
+  "application/sparql-results+json");	
+xmlhttp.onreadystatechange = function() {
+ if(xmlhttp.readyState==4 ){
+  if(xmlhttp.status==200){				
+   callback(xmlhttp.responseText,map);
+  }else
+  // Error
+  alert("Error: Status: "+ xmlhttp.status + "Response: "
+		+ xmlhttp.responseText);
+ }	
+};
+// Send the query to the endpoint.
+xmlhttp.send(querypart);
+\end{lstlisting}
+\end{figure}\newline
+Una volta creato un oggetto di tipo \textbf{getHTTPObject()}, la variabile \textbf{xmlhttp}, con i metodi \textbf{open} e \textbf{send}, si apre e si invia la richiesta al server.\newline
+Con open si posso effettuare due tipi di chiamata. La prima può essere fatta tramite GET, mentre la seconda può essere fatta tramite una chiamata POST. Per una chiamata di tipo POST però bisogna impostare gli headers\footnote{serie di coppie chiave/valore specifici per uno scambio dati via interne}, dato dal comando:
+\begin{figure}[htb]
+\begin{lstlisting}[language=HTML, basicstyle=\large]
+xmlhttp.setRequestHeader('Content-type',
+	'application/x-www-form-urlencoded')
+\end{lstlisting}
+\end{figure}\newline
+La variabile \textbf{onreadystatechange} chiama la funzione ogni volta che il valore ottenuto dal metodo readyState cambia.
+Il metodo \textbf{readyState} tiene traccia dello stato di XMLHttpRequest e può assumere determinati valori:
+	\begin{table}
+		\begin{center}				
+		\begin{tabular}{|>{\small}l|>{\small}l|}
+				\hline
+				\textbf{Valore} & \textbf{Commento}\\				
+				\hline
+				0 & richiesta non inizializzata.\\
+				\hline
+				1 & connessione server stabilita.\\
+				\hline
+				2 & richiesta ricevuta.\\
+				\hline
+				3 & richiesta in processo.\\
+				\hline
+				4 & richiesta finita e responso è pronto.\\
+				\hline			
+		\end{tabular}	
+		\caption{Tabella degli stati di XMLHttpRequest.}	
+		\end{center}	
+	\end{table}\newpage
+Infine con il metodo \textbf{status} si controlla la risposta dal server e può  assumere diversi valori:
+\begin{itemize}
+	\item 200 Il server è stato trovato.
+	\item 403 Forbidden
+	\item 404 Server Not Found	
+	\item 500 Internal Server Error
+	\item ...
+\end{itemize}
+	
+
+Quando si verifica che \textbf{readyState} ha valore 4 e \textbf{status} ha valore 200, il client comunica con il server e il risultato, dato dal metodo \textbf{responseText} viene convertito in una stringa che poi, successivamente,  si applicherà la codifica JSON.
+Tuttavia però tale chiamata non sempre va a buon fine. I browser moderni hanno una sorta di restrizione\footnote{Same-domain-policy}, cioè che non si può fare una richiesta HTTP da risorse che si trovano su server diversi rispetto a quello iniziale che ha inviato lo script.\newline
+Tale richiesta viene chiamata richiesta \textbf{Cross-domain}, che verrà affrontata nel Capitolo 6 paragrafo 5. 
+	\end{enumerate}
+\newpage
+\item \LARGE{\textbf{Presentazione e codice dell'applicazione}}
+		\begin{enumerate}[label*=\arabic*.]
+			\Large
+			\item Programmi utilizzati.
+			\item HTML.
+			\item Javascript.
+			\item Css.
+			\item Il problema delle richieste Cross-Domain.
 		\end{enumerate}
+	
 \end{enumerate}
 \end{document}
