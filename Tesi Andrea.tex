@@ -216,7 +216,7 @@ Analizzato i concetti di base del Web Semantico vediamo adesso come è struttura
 
 \subsection{Resource Description Framework (RDF)}
 \label{sec:2.1}
-Il \textbf{Resource Description Framework(RDF)}, proposto da W3C, è lo strumento base per la realizzazione del Semantic Web. Esso esprime informazioni sulle risorse che possono essere di qualunque tipo, come ad esempio persone o cose.\newline
+Il \textbf{Resource Description Framework(RDF)}, proposto dal W3C, è lo strumento base per la realizzazione del Semantic Web. Esso esprime informazioni sulle risorse che possono essere di qualunque tipo, come ad esempio persone o cose.\newline
 I dati espressi possono anche essere, ad esempio, informazioni sulle pagine web, contenuti per i motori di ricerca oppure biblioteche elettroniche, sia aziendali che comunali, contenenti moltissime informazioni.
 Per descrivere queste informazioni RDF utilizza:
 \begin{itemize}
@@ -233,8 +233,8 @@ Le combinazioni tra Risorse, Proprietà e Valori prendono il nome di \textbf{Ass
 	\label{fig:2}
 \end{figure}\newpage 
 
-Il soggetto e l'oggetto rappresentano le due risorse, mentre il predicato rappresenta la natura del loro rapporto.\newline Ecco un esempio di triple in RDF:\newline <Napoleone> <è nato> <ad Ajaccio>\newline <Napoleone> <perse> <a Waterloo>.\newline <Jacques-Louis David> <dipinse l'incoronazione> <di Napoleone>.\newline Come si evince dall'esempio Napoleone e soggetto di 2 asserzioni e oggetto dell'altra; questa caratteristica importante, cioè quella di avere la stessa risorsa sia in posizione di soggetto e sia in posizione di oggetto, permette di trovare connessioni tra triple e quindi reperire più informazioni.
-Si realizza in questo un grafo dove il soggetto e l'oggetto rappresentano i nodi mentre il predicato corrisponde l'arco.
+Il soggetto e l'oggetto rappresentano le due risorse, mentre il predicato rappresenta la natura del loro rapporto.\newline Ecco un esempio di triple in RDF:\newline <Napoleone> <è nato ad> < Ajaccio>\newline <Napoleone> <perse a> < Waterloo>.\newline <Jacques-Louis David> <dipinse l'incoronazione di> < Napoleone>.\newline Come si evince dall'esempio Napoleone e soggetto di 2 asserzioni e oggetto dell'altra; questa caratteristica importante, cioè quella di avere la stessa risorsa sia in posizione di soggetto e sia in posizione di oggetto, permette di trovare connessioni tra triple e quindi reperire più informazioni.
+Si realizza in questo un grafo dove il soggetto e l'oggetto rappresentano i nodi mentre al predicato corrisponde l'arco.
 
 \begin{figure}[ht]
 	\centering
@@ -242,31 +242,30 @@ Si realizza in questo un grafo dove il soggetto e l'oggetto rappresentano i nodi
 	\caption{Esempio di Grafo.}
 	\label{fig:3}
 \end{figure}
-
-che si traduce nel linguaggio rdf:
+Il grafo indicato in Figura \ref{fig:3} si traduce nel linguaggio rdf come segue:
 \begin{lstlisting}[language=XML, basicstyle=\large]
 <rdf:Description rdf:about="http://www.host.html/">
-	<s:Personaggio rdf:resource="http://persona.com/id/0001"/>
+	<s:personaggio rdf:resource="http://persona.com/id/0001"/>
 </rdf:Description>
 <rdf:Description rdf:about="http://persona.com/id/0001">
- 	<s:Nome>Napoleone</s:Nome>
- 	<s:Luogo di Nascita>Ajaccio</s:Luogo di Nascita>
+ 	<s:nome>Napoleone</s:Nome>
+ 	<s:luogo di Nascita>Ajaccio</s:Luogo di Nascita>
 </rdf:Description>
 
 \end{lstlisting}
 \newpage
-Le risorse, i predicati e i valori però possono assumere qualsiasi forma, le principali forme assunte sono:
+Le risorse, i predicati possono essere solo URI/IRI mentre i valori però possono assumere qualsiasi forma, le principali forme assunte sono:
 \begin{itemize}
 	\item \textbf{URI/IRI}: come ad esempio la risorsa Napoleone può essere contenuta, per esempio, su DBpedia;\footnote{ sito internet che offre un progetto aperto e collaborativo per l’estrazione e il riutilizzo di informazioni semi-strutturate dalla Wikipedia in italiano. \url{http://it.dbpedia.org/}}
 	\item \textbf{Literals}: sono dei valori costanti, come ad esempio date, numeri o anche stringhe.
 \end{itemize}
-Un' altra caratteristica importante del modello RDF e che è le risorse possono essere raggruppate per formare un insieme; tale insieme prende il nome di \textbf{Contenitore} e in RDF può essere di tre tipi:
+Un'altra caratteristica importante del modello RDF e che è le risorse possono essere raggruppate in strutture che prendono il nome di \textbf{Contenitori}. In RDF un contenitore può essere di tre tipi:
 \begin{itemize}
 	\item \textbf{Bag}, è una lista non ordinata di Risorse e Literals;
 	\item \textbf{Sequence}, a differenza di Bag, l'insieme è ordinato;
-	\item \textbf{Alternative}, è una lista di risorse che definiscono. un'alternativa per il valore singolo di una proprietà\footnote{Fonte Wikipedia.}
+	\item \textbf{Alternative}, è una lista di risorse che definiscono un'alternativa per il valore singolo di una proprietà.\footnote{Fonte Wikipedia.}
 \end{itemize} 
-Per rappresentare semanticamente il modello RDF, si utilizza un'estensione chiamata RDF Schema, che fornisce meccanismi per gruppi di risorse correlate e descrive le risorse con le classi, proprietà e valori.\newline Il sistema di classi e delle proprietà di RDF Schema è simile al linguaggio Java e fornisce elementi di base per la descrizione delle ontologie, per vincolare domini e codomini delle relazioni, definire classi di oggetti e relazioni tra classi.
+Per rappresentare semanticamente il modello RDF, si utilizza un'estensione chiamata RDF Schema, che fornisce meccanismi per gruppi di risorse correlate e descrive le risorse con le classi, proprietà e valori.\newline Il sistema di classi e delle proprietà di RDF Schema, fornisce elementi di base per la descrizione delle ontologie, per vincolare domini e codomini delle relazioni, definire classi di oggetti e relazioni tra classi.
 Nelle seguenti tabelle viene descritto le classi e le proprietà utilizzate dal RDF Schema:	\newline		
 \begin{table}[!htb]
 \begin{center}				
@@ -325,9 +324,9 @@ Nelle seguenti tabelle viene descritto le classi e le proprietà utilizzate dal 
 La logica descrittiva\footnote{Description Logics} è una notazione formale utilizzata nella rappresentazione della conoscenza. Ogni nodo, oggetto o categoria, è caratterizzato da un elenco di proprietà.
 Dato un particolare dominio di conoscenza, la logica descrittiva individua i concetti primari, le categorie più rilevanti, e successivamente analizza le proprietà degli oggetti, al fine di migliorare la descrizione delle classificazioni e delle sotto-classificazioni del dominio di conoscenza. Ogni DL è basata da blocchi sintattici di base che sono:
 \begin{itemize}
-\item \textbf{Concetti}: corrispondenti a predicati unari che con i quali, combinati tra loro, danno origine a predicati complessi; 
+\item \textbf{Concetti}: corrispondenti a predicati unari che, combinati tra loro, danno origine a predicati complessi; 
 \item \textbf{Ruoli}: corrispondenti a predicati binari ed eventualmente operatori;
-\item \textbf{Individui}: costanti usati solo nelle asserzioni.
+\item \textbf{Individui}: costanti usate solo nelle asserzioni.
 \end{itemize}
 Una base di conoscenza per le DL è costituito da:
 \begin{itemize}
@@ -406,9 +405,9 @@ La realizzazione del portale è stata resa possibile grazie alle librerie fornit
 \label{sec:3.1}
 Per preparare il sito web con la mappa interattiva occorre realizzare le seguenti principali procedure:
 \begin{itemize}
-	\item Inserire nel codice HTML nella sezione \textbf{head} il riferimento al file \textbf{"`leaflet.css"`}
-	\item Includere il file scritto in JavaScript \textbf{"`leaflet.js"'}
-	\item Inserire un elemento div che ha come parametro \textbf{"`id=map"'} nella sezione \textbf{body}
+	\item Inserire nel codice HTML nella sezione \textbf{head} il riferimento al file \textbf{"`leaflet.css"'};
+	\item Includere il file scritto in JavaScript \textbf{"`leaflet.js"'};
+	\item Inserire un elemento div che ha come parametro \textbf{"`id=map"'} nella sezione \textbf{body};
 	\item Settare attraverso la tecnologia CSS3 le caratteristiche della mappa attraverso l'id "`map"'.				
 \end{itemize}
 Come mostrato nel seguente esempio:
@@ -704,7 +703,7 @@ Organization Ontology estende e utilizza termini da altri vocabolari, riportati 
 \end{table}\newpage
 Tali vocabolari servono per organizzare al meglio la struttura organizzativa di aziende, società e comuni.
 Nel progetto è stato utilizzato un vocabolario creato dal \textbf{Dott.Cristiano Longo} che fa riferimento allo macro struttura del Comune di Catania.
-Tale vocabolario si trova al seguente sito \url{ttp://dydra.com/cristianolongo/comune-di-catania/sparql}.\newline
+Tale vocabolario si trova al seguente sito \url{http://dydra.com/cristianolongo/comune-di-catania/sparql}.\newline
 Tramite questo endpoint, si fa una specifica interrogazione in SPARQL, attraverso una chiamata AJAX. I dati ottenuti sono codificati tramite la codifica JSON.
 \subsection{Menù gerarchici}
 \label{sec:5.1}
