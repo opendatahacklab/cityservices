@@ -304,8 +304,10 @@
 
 \section{Introduzione}
 Lo scopo di questa tesi di laurea è di realizzare una libreria JavaScript per il trattamento delle ontologie del Web Semantico.
-Tale libreria è divisa in due parti. Nella prima parte si concentra sulla informazioni geolocalizzate, attraverso il sito web Leaflet che fornisce librerie per la gestione di una mappa on-line, mentre nella seconda parte utilizza SPARQL, dove attraverso una query otteniamo i dati tramite la codifica JSON. Prima di ciò ci soffermeremo sui concetti principali del Web Semantico e sulle logiche descrittive, che verranno descritti nel primo capitolo. Poi in seguito verranno indicati tutti gli strumenti adoperati, quali i programmi e i siti web, per la realizzazione del progetto. \newline In particolare si parlerà della base di conoscenza, realizzata dal dott. Longo Cristiano, che rappresenta la macrostruttura del Comune di Catania. Per ogni ufficio della macrostruttura è indicato una latitudine e una longitudine, per rappresentare tale ufficio nella mappa on-line si utilizzano i markers, che sono dei puntini di colore blu, dove cliccandoci sopra si apre una tendina contenente tutte le informazioni relative all'ufficio. 
-Infine si parlerà dei Linked Open Data, che sono dei vocabolari messi a disposizione dall'AgID coi quali si realizzerà, insieme alla base di conoscenza del dott.Longo Cristiano, sia il menù gerarchico sia le query necessarie per la creazione dei markers.  
+Tale libreria è divisa in due parti. Nella prima parte si concentra sulla informazioni geolocalizzate, attraverso il sito web Leaflet, che fornisce librerie per integrare una mappa on-line su una pagina web, spiegato nel terzo capitolo, mentre nella seconda parte utilizza SPARQL, dove attraverso una query otteniamo i dati tramite la codifica JSON, spiegato nel quarto capitolo. 
+Il resto della tesi è strutturato come segue: nel secondo capitolo vedremo i concetti principali del Web Semantico e sulle logiche descrittive. Nel quinto capitolo si parlerà  dei Linked Open Data, che sono dei vocabolari messi a disposizione dall'AgID coi quali si realizzerà, insieme alla base di conoscenza del dott.Longo Cristiano, che rappresenta la macrostruttura del Comune di Catania, sia il menù gerarchico sia le query necessarie per la creazione dei markers.
+ Per ogni ufficio della macrostruttura del Comune di Catania è indicato una latitudine e una longitudine e ci serviremo dei markers, che sono dei puntini di colore blu, dove cliccandoci sopra si apre una tendina contenente tutte le informazioni relative all'ufficio, per associare tali coordinate. 
+Infine verranno indicati tutti gli strumenti adoperati, quali i programmi e i siti web, per la realizzazione del progetto, descritti nel capitolo sei. 
 
 
 
@@ -317,8 +319,8 @@ Il termine Web Semantico è un concetto nato solo da pochi anni, dalla mente di 
 Inizialmente si adoperava il semplice \textbf{collegamento ipertestuale,}\footnote{Rinvio da un'unità informativa su supporto digitale ad un'altra. Fonte Wikipedia.} le macchine si limitavano solamente a trasmettere il contenuto, senza possibilità di capire com'era strutturata la pagina.
 A tal proposito si utilizza il concetto di \textbf{rappresentazione della conoscenza}.
 I sistemi di rappresentazione della conoscenza permettono di usare semantiche formali e simbolismi di carattere matematico, cioè una serie di costrutti sia per definire la sintassi del dominio di interesse, sia una serie di operatori che permettano di dare un significato alle asserzioni.
-Con questo ragionamento possiamo quindi costruire una \textbf{base di conoscenza}\footnote{Ambiente volto a facilitare la raccolta, l'organizzazione e la distribuzione della conoscenza. Fonte Wikipedia.}, che permette agli applicativi software e agli agenti automatici di scaricare diverse informazioni che sono relative, per esempio, ad aziende oppure enti culturali e utilizzarle in maniera più adeguata. In questo progetto si utilizza un base di conoscenza realizzata in RDF(vedi Paragrafo \ref{sec:2.1}) ed elaborata attraverso il linguaggio di programmazione Javascript, ma ne parleremo più avanti.\newline
-Analizzati i concetti di base del Web Semantico vediamo adesso come è strutturato. Lo si può pensare come un sistema a livelli gerarchico, dove ogni livello è arricchito con nuovi costrutti e simbolismi come mostrato in \textbf{Figura ~\ref{fig:1}}
+Con questo ragionamento possiamo quindi costruire una \textbf{base di conoscenza},\footnote{Ambiente volto a facilitare la raccolta, l'organizzazione e la distribuzione della conoscenza. Fonte Wikipedia.} che permette agli applicativi software e agli agenti automatici di scaricare diverse informazioni che sono relative, per esempio, ad aziende oppure enti culturali e utilizzarle in maniera più adeguata. In questo progetto si utilizza un base di conoscenza realizzata in RDF\footnote{Vedi Capitolo \ref{sec:2.2}} ed elaborata attraverso il linguaggio di programmazione Javascript, ma ne parleremo più avanti.\newline
+Analizzati i concetti di base del Web Semantico vediamo adesso come è strutturato. Lo si può pensare come un sistema a livelli gerarchico, dove ogni livello è arricchito con nuovi costrutti e simbolismi come mostrato in \textbf{Figura \ref{fig:1}.}
 \begin{figure}[ht]
 	\centering
 	\includegraphics[scale=0.5]{semweb-layers.png}
@@ -337,14 +339,14 @@ Analizzati i concetti di base del Web Semantico vediamo adesso come è struttura
 \subsection{Il modello Turtle}
 \label{sec:2.1}
 La sintassi utilizzata nello SPARQL è simile a Turtle\footnote{Terse RDF Triple Language} per esprimere modelli di query. \newline 
-Il Turtle è anch'esso un formato per esprimere i dati nel \textbf{Resource Description Framework (RDF)},  anche in questo caso le informazioni vengono rappresentate attraverso le triple, ciascuna delle quali è costituito da un soggetto, un predicato, e un oggetto. Ogni elemento è espresso come indirizzo URI/IRI come mostrato in Figura 6.
+Il Turtle è anch'esso un formato per esprimere i dati nel \textbf{Resource Description Framework (RDF)},  anche in questo caso le informazioni vengono rappresentate attraverso le triple, ciascuna delle quali è costituito da un soggetto, un predicato, e un oggetto. Ogni elemento è espresso come indirizzo URI/IRI come mostrato in \textbf{Figura \ref{fig:2}}.
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[scale=1]{turtle.png}
 	\caption{Esempio Codice Turtle.}
 	\label{fig:2}
 \end{figure}
-Gli indirizzi URI vengono racchiusi tra "<" ed ">" e possono essere abbreviati attraverso il comando \textbf{@prefix}, a cui viene associato un nome che può essere richiamato in diversi parti del file.\newline
+Gli indirizzi URI vengono racchiusi tra < ed > e possono essere abbreviati attraverso il comando \textbf{@prefix}, a cui viene associato un nome che può essere richiamato in diversi parti del file.\newline
 Turtle è un'alternativa a RDF/XML, ma a differenza di quest'ultimo, Turtle non si basa su XML ed è più facile da modificare, inoltre risulta molto più leggibile.\newline
 Nel 2011, il World Wide Web Consortium (W3C) ha iniziato a lavorare su una versione aggiornata di RDF, ed ha pubblicato la documentazione il 25 febbraio 2014.\footnote{La pubblicazione si trova al sito https://www.w3.org/TR/turtle/}
 \subsection{Resource Description Framework (RDF)}
@@ -357,7 +359,7 @@ Per descrivere queste informazioni RDF utilizza:
 	\item Proprietà: è una relazione utilizzata per descrivere una risorsa;
 	\item Valore: è il valore assunto dalla proprietà; può essere anche una risorsa.
 \end{itemize}
-Le combinazioni tra Risorse, Proprietà e Valori prendono il nome di \textbf{Asserzioni} (statement), cioè una tripla composta da un soggetto (risorsa), un predicato (proprietà) e un oggetto (valore), come mostrato in \textbf{Figura~\ref{fig:2}}.
+Le combinazioni tra Risorse, Proprietà e Valori prendono il nome di \textbf{Asserzioni} (statement), cioè una tripla composta da un soggetto (risorsa), un predicato (proprietà) e un oggetto (valore), come mostrato in \textbf{Figura~\ref{fig:3}}.
 
 \begin{figure}[htbp]
 	\centering
@@ -366,8 +368,8 @@ Le combinazioni tra Risorse, Proprietà e Valori prendono il nome di \textbf{Ass
 	\label{fig:3}
 \end{figure}\newpage 
 
-Il soggetto e l'oggetto rappresentano le due risorse, mentre il predicato rappresenta la natura del loro rapporto.\newline Ecco un esempio di triple in RDF:\newline <Napoleone> <è nato ad> < Ajaccio>\newline <Napoleone> <perse a> < Waterloo>.\newline <Jacques-Louis David> <dipinse l'incoronazione di> < Napoleone>.\newline Come si evince dall'esempio Napoleone e soggetto di due asserzioni e oggetto dell'altra; questa caratteristica importante, cioè quella di avere la stessa risorsa sia in posizione di soggetto e sia in posizione di oggetto, permette di trovare connessioni tra triple e quindi reperire più informazioni.
-Si realizza in questo un grafo dove il soggetto e l'oggetto rappresentano i nodi mentre al predicato corrisponde l'arco.
+Il soggetto e l'oggetto rappresentano le due risorse, mentre il predicato rappresenta la natura del loro rapporto.\newline Ecco un esempio di triple in RDF:\newline <Napoleone> <è nato ad> < Ajaccio>\newline <Napoleone> <perse a> < Waterloo>.\newline <Jacques-Louis David> <dipinse l'incoronazione di> < Napoleone>.\newline Come si evince dall'esempio Napoleone è soggetto di due asserzioni e oggetto dell'altra; questa caratteristica importante, cioè quella di avere la stessa risorsa sia in posizione di soggetto e sia in posizione di oggetto, permette di trovare connessioni tra triple e quindi reperire più informazioni.
+Si realizza un grafo dove il soggetto e l'oggetto rappresentano i nodi mentre al predicato corrisponde l'arco.
 
 \begin{figure}[ht]
 	\centering
@@ -375,8 +377,8 @@ Si realizza in questo un grafo dove il soggetto e l'oggetto rappresentano i nodi
 	\caption{Esempio di Grafo.}
 	\label{fig:4}
 \end{figure}
-Il grafo indicato in Figura \ref{fig:3} si traduce nel linguaggio rdf come segue:
-\begin{lstlisting}[language=XML, basicstyle=\large]
+Il grafo indicato in \textbf{Figura \ref{fig:4}} si traduce nel linguaggio rdf come segue:
+\begin{lstlisting}[style=htmlcssjs]
 <rdf:Description rdf:about="http://www.host.html/">
 	<s:personaggio rdf:resource="http://persona.com/id/0001"/>
 </rdf:Description>
@@ -386,10 +388,9 @@ Il grafo indicato in Figura \ref{fig:3} si traduce nel linguaggio rdf come segue
 </rdf:Description>
 
 \end{lstlisting}
-\newpage
 Le risorse, i predicati possono essere solo URI/IRI mentre i valori possono essere:
 \begin{itemize}
-	\item \textbf{URI/IRI}: come ad esempio la risorsa Napoleone può essere contenuta, per esempio, su DBpedia;\footnote{ sito internet che offre un progetto aperto e collaborativo per l’estrazione e il riutilizzo di informazioni semi-strutturate dalla Wikipedia in italiano. \url{http://it.dbpedia.org/}}
+	\item \textbf{URI/IRI}: come ad esempio la risorsa Napoleone può essere contenuta, per esempio, su DBpedia;\footnote{Sito internet che offre un progetto aperto e collaborativo per l’estrazione e il riutilizzo di informazioni semi-strutturate dalla Wikipedia in italiano. \url{http://it.dbpedia.org/}}
 	\item \textbf{Literals}: sono dei valori costanti, come ad esempio date, numeri o anche stringhe.
 \end{itemize}
 Un'altra caratteristica importante del modello RDF e che è le risorse possono essere raggruppate in strutture che prendono il nome di \textbf{Contenitori}. In RDF un contenitore può essere di tre tipi:
@@ -398,7 +399,7 @@ Un'altra caratteristica importante del modello RDF e che è le risorse possono e
 	\item \textbf{Sequence}, a differenza di Bag, l'insieme è ordinato;
 	\item \textbf{Alternative}, è una lista di risorse che definiscono un'alternativa per il valore singolo di una proprietà.\footnote{Fonte Wikipedia.}
 \end{itemize} 
-Per definire schemi e vocabolari per i metadati, si utilizza un'estensione di RDF chiamata RDF Schema, che fornisce meccanismi per gruppi di risorse correlate e descrive le risorse con le classi, proprietà e valori.\newline Il sistema di classi e delle proprietà di RDF Schema, fornisce elementi di base per la descrizione delle ontologie, per vincolare domini e codomini delle relazioni, definire classi di oggetti e relazioni tra classi.
+Per definire schemi e vocabolari per i metadati, si utilizza un'estensione di RDF chiamata RDF Schema, che fornisce meccanismi per gruppi di risorse correlate e descrive le risorse con le classi, le proprietà e i valori.\newline Il sistema di classi e delle proprietà di RDF Schema, fornisce elementi di base per la descrizione delle ontologie, per vincolare domini e codomini delle relazioni, definire classi di oggetti e relazioni tra classi.
 Nelle seguenti tabelle viene descritto le classi e le proprietà utilizzate dal RDF Schema:	\newline		
 \begin{table}[!htb]
 \begin{center}				
@@ -471,7 +472,8 @@ Il TBox contiene frasi che descrivono gerarchie di concetti o di ruoli, mentre l
 Introduciamo adesso un concetto sintattico molto importante per lo sviluppo delle logiche descrittive, cioè il \textbf{linguaggio descrittivo}.
 Un linguaggio descrittivo è il linguaggio attraverso cui si esprimono prescrizioni, aventi la funzione di indirizzare il comportamento degli individui. \newline
 \textbf{Definizione}. \newline Un linguaggio descrittivo consiste di una terna di insiemi finiti. \textbf{(C, R, Ob)}. Gli elementi di \textbf{C} sono indicati con le lettere A, B, . . . e sono chiamati concetti atomici; gli elementi di \textbf{R} sono indicati con le lettere R, S, . . . e sono detti
-ruoli, mentre gli elementi di \textbf{Ob} sono indicati con le lettere a, b, . . . e sono detti nomi degli oggetti.\footnote{ \url{http://homes.di.unimi.it/~ghilardi/logica2/DL.pdf}). Introduzione alle Logiche Descrittive di Silvio Ghilardi}\newpage Fra i costruttori di concetti annoveriamo certamente gli operatori booleani che indichiamo con $\neg$(negazione), $\sqcap$(intersezione), $\sqcup$(unione). \newline Ci riserveremo anche di usare rispettivamente per il concetto universale $\top$(sempre soddisfatto) e  per il concetto contraddittorio $\bot$(mai soddisfatto).\newline
+ruoli, mentre gli elementi di \textbf{Ob} sono indicati con le lettere a, b, . . . e sono detti nomi degli oggetti.\footnote{ \url{http://homes.di.unimi.it/~ghilardi/logica2/DL.pdf}). Introduzione alle Logiche Descrittive di Silvio Ghilardi}\newline
+Fra i costruttori di concetti annoveriamo certamente gli operatori booleani che indichiamo con $\neg$(negazione), $\sqcap$(intersezione), $\sqcup$(unione). \newline Ci riserveremo anche di usare rispettivamente per il concetto universale $\top$(sempre soddisfatto) e  per il concetto contraddittorio $\bot$(mai soddisfatto).\newline
 Un linguaggio descrittivo si può scrivere nel seguente modo $\I = (\Delta^\I,\cdot^\I)$ dove $\Delta^\I$ rappresenta il dominio dell'interpretazione, 
 mentre $\cdot^\I$ rappresenta la funzione di interpretazione, che assegna:
 \begin{itemize}
@@ -505,7 +507,8 @@ $\{a\}^{\I}=\{a^{\I}\}$
 \begin{center}
 $\{a_1,...a_n\}^{\I}=\{a_1^{\I},...a_n^{I}\}$
 \end{center}
-\end{enumerate}\newpage Per estendere il linguaggio si dice che $\I$ è modello $\models$ di:\newline
+\end{enumerate}
+Per estendere il linguaggio si dice che $\I$ è modello $\models$ di:\newline
 \textbf{TBox} se:
 \begin{center}
 	$\I \models C \sqsubseteq D$ se e soltanto se $C^{\I} \subseteq D^{\I}$	
@@ -572,7 +575,7 @@ Per fare questo occorre registrarsi al sito web fornendo:
 	\item Email;
 	\item Password.
 \end{itemize}
-Una volta effettuato l'accesso bisogna cliccare sul pulsante \textbf{Studio}, situato in alto a destra, poi sul pannello \textbf{Styles} e, infine su \textbf{Create a Style} in questo modo creerà una nuova mappa da poter modellare a seconda delle proprie necessità. In Figura \ref{fig:4} è mostrata la pagina principale del sito web, mentre nella Figura \ref{fig:5} il pannello \textbf{Styles} con i comandi principali.
+Una volta effettuato l'accesso bisogna cliccare sul pulsante \textbf{Studio}, situato in alto a destra, poi sul pannello \textbf{Styles} e, infine su \textbf{Create a Style} in questo modo creerà una nuova mappa da poter modellare a seconda delle proprie necessità. In \textbf{Figura \ref{fig:5}} è mostrata la pagina principale del sito web, mentre nella \textbf{Figura \ref{fig:6}} il pannello \textbf{Styles} con i comandi principali.
 \newpage
 \begin{figure}[htpb]
 	\centering
@@ -590,14 +593,14 @@ Una volta creata la mappa, cliccare sul pannello \textbf{Edit}, in questo modo s
 Sul pannello  a sinistra è indicata la consolle per modellare la mappa, possiamo scegliere i colori delle strade, dell'acqua, della terra e pianure e dello sfondo.\newline
 Sul pannello di destra, invece, è indicato lo zoom e le coordinate, cioè la latitudine e la longitudine. Sistemate tutte le modifiche per confermare il progetto della mappa cliccare sul pulsante \textbf{Publish}.
 Cliccando sul nome della mappa, nel pannello \textbf{Styles}, a destra è indicato l'indirizzo url per poter pubblicare la mappa.
-In Figura \ref{fig:6} è mostrato la schermata \textbf{Edit}.
+In \textbf{Figura \ref{fig:7}} è mostrato la schermata \textbf{Edit}.
 \begin{figure}[ht]
 	\centering
 	\includegraphics[scale=0.26]{Edit.png}
 	\caption{Pannello Edit.}
 	\label{fig:7}
 \end{figure}\newpage		
-Per inserire la mappa sul codice sorgente e caricarla nella pagina web, bisogna inizializzarla fornendo le coordinate geografiche della posizione e il livello dello zoom. Tali informazioni sono reperibili sul pannello Edit come mostrato in  Figura \ref{fig:7}, e devono essere inserite nella sezione body della file \textbf{index.html}.
+Per inserire la mappa sul codice sorgente e caricarla nella pagina web, bisogna inizializzarla fornendo le coordinate geografiche della posizione e il livello dello zoom. Tali informazioni sono reperibili sul pannello Edit come mostrato in  \textbf{Figura \ref{fig:8}}, e devono essere inserite nella sezione body della file \textbf{index.html}.
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[scale=1]{coordinate.png}
@@ -617,7 +620,7 @@ Il codice da inserire e da mettere nella sezione body ed è il seguente:
 </body>
 \end{lstlisting}
 				
-Dalla codice si evince che all'interno delle parentesi, sono inserite le coordinate geografiche presenti nella Figura \ref{fig:7}, inoltre lo script utilizzato è sempre JavaScript.
+Dal codice si evince che all'interno delle parentesi, sono inserite le coordinate geografiche presenti nella \textbf{Figura \ref{fig:7}}, inoltre lo script utilizzato è sempre JavaScript.
 Il prossimo passaggio è quello di inserire la mappa utilizzando il comando \textbf{tileLayer}. Tale comando permette di inserire la mappa creata sul sito di Mapbox, definendo lo zoom massimo possibile, gli attributi, l'identificativo della mappa e l'access token. Di seguito abbiamo il codice sorgente:
 \begin{figure}[htb]
 \begin{lstlisting}[style=htmlcssjs]
@@ -641,7 +644,7 @@ Il prossimo passaggio è quello di inserire la mappa utilizzando il comando \tex
 \end{lstlisting}
 \end{figure}
 \newpage
-Sul codice precedente per il caricamento della mappa, si nota che nella prima voce è indicato il collegamento ipertestuale della mappa, alla voce \textbf{attribution} sono indicate le licenze, mentre alla voce \textbf{id}, è specificato l'identificativo della nostra mappa, che si ricava dal sito Mapbox alla sezione \textbf{Styles} come mostrato in Figura \ref{fig:5} accanto alla voce Edit.
+Sul codice precedente per il caricamento della mappa, si nota che nella prima voce è indicato il collegamento ipertestuale della mappa, alla voce \textbf{attribution} sono indicate le licenze, mentre alla voce \textbf{id}, è specificato l'identificativo della nostra mappa, che si ricava dal sito Mapbox alla sezione \textbf{Styles} come mostrato in \textbf{Figura \ref{fig:6}} accanto alla voce Edit.
 Infine alla voce \textbf{accessToken}, si deve indicare quel valore disponibile, sempre nel pannello \textbf{Styles}, a destra. \newline
 Seguendo le procedure appena indicate, la mappa verrà visualizzata correttamente nella nostra pagina web.
 
@@ -731,7 +734,12 @@ Inoltre SPARQL fornisce diversi comandi per una maggiore flessibilità sulle int
 \label{sec:4.2}
 Per fare un interrogazione in SPARQL, JavaScript ha bisogno di una chiamata AJAX\footnote{Vedi Capitolo \ref{sec:5.2}} e della codifica JSON.\footnote{Vedi Capitolo \ref{sec:5.3}}
 Nel progetto sono date rispettivamente dalla variabile \textbf{xmlhttp}, che fa la chiamata AJAX tramite il metodo \textbf{getHTTPObject()} e restituisce il risultato tramite \textbf{responseText}.
-La richiesta AJAX, inoltre, utilizza \newline \textbf{setRequestHeader("Accept", "application/sparql-results+json");} \newline in questo modo i risultati ottenuti sono visualizzati secondo la codifica JSON.
+La richiesta AJAX, inoltre, utilizza: 
+\begin{lstlisting}[style=htmlcssjs]
+setRequestHeader("Accept", "application/sparql-results+json");} 
+ 
+\end{lstlisting} 
+in questo modo i risultati ottenuti sono visualizzati secondo la codifica JSON.
 Il codice utilizzato nel progetto è il seguente:
 \begin{figure}[!htb]
 \begin{lstlisting}[style=htmlcssjs]
@@ -767,19 +775,19 @@ function createSparqlQuery(endpoint,query,map,callback){
 </body>
 \end{lstlisting}
 \end{figure}\newline
-Basta scrivere la query utilizzando la nomenclatura dello SPARQL descritta precedentemente e fornire l'indirizzo URI della base di conoscenza; la variabile utilizzata nel progetto per scrivere la query è \textbf{query}, mentre per far riferimento alla base di conoscenza si utilizza endpoint.
+Basta scrivere la query utilizzando la nomenclatura dello SPARQL descritta precedentemente e fornire l'indirizzo URI della base di conoscenza; la variabile utilizzata nel progetto per scrivere la query è \textbf{query}, mentre per far riferimento alla base di conoscenza si utilizza \textbf{endpoint}.
 \newpage
 \section{Ontologie per la rappresentazione dei servizi pubblici}
 \label{sec:5}
-L’Agenzia per l’Italia Digitale (AgID\footnote{\url{www.agid.gov.it}}) ha l'obiettivo di pubblicare dati e documenti relativi ai servizi, alla struttura e alle attività svolte sul sito e di fornire a pubbliche amministrazioni, imprese e cittadini le tecniche utilizzate dal Web Semantico. In pratica vengono forniti vocabolari, sviluppati tramite la pubblicazione \textbf{Linked Open Data}. Tale metodo consiste nello strutturare i dati in modo da poter essere interconnessi e diventare più utili attraverso delle interrogazioni, fatte per esempio dallo linguaggio SPARQL. 
+L’Agenzia per l’Italia Digitale (AgID\footnote{\url{www.agid.gov.it}}) ha l'obiettivo di pubblicare dati e documenti relativi ai servizi, alla struttura e alle attività svolte sul sito e di fornire a pubbliche amministrazioni, imprese e cittadini le tecniche utilizzate dal Web Semantico. In pratica vengono forniti vocabolari, sviluppati tramite la pubblicazione \textbf{Linked Open Data}. Tale metodo consiste nello strutturare i dati in modo da poter essere interconnessi e diventare più utili attraverso delle interrogazioni, fatte per esempio in linguaggio SPARQL. 
 Nella tabella successiva vengono indicati alcuni dei principali vocabolari utilizzati.
 
 \begin{table}[!htbp]
 \begin{center}				
 \begin{tabular}{|>{\small}l|>{\small}l|>{\small}l|}
 	\hline	\textbf{Vocabolario} & \textbf{Namespace} & \textbf{URL}\\				
-	\hline	Friend Of A Friend & foaf & http://xmlns.com/foaf/spec/.\\
-	\hline	Core Location & locn & http://www.w3.org/ns/locn.\\
+	\hline	Friend Of A Friend & foaf & http://xmlns.com/foaf/spec/\\
+	\hline	Core Location & locn & http://www.w3.org/ns/locn\\
 	\hline	Organization Ontology & org & http://www.w3.org/TR/vocab-org/\\
 	\hline			
 \end{tabular}	
@@ -787,15 +795,27 @@ Nella tabella successiva vengono indicati alcuni dei principali vocabolari utili
 \end{center}	
 \end{table}
 Analizzeremo in dettaglio i vocabolari \textbf{Core Location} e \textbf{Organization Ontology}.
-Il \textbf{Core Location} è un vocabolario utilizzato per rappresentare qualsiasi luogo in termini di nome, di indirizzo o di coordinate. Tale vocabolario fa parte del progetto \textbf{ISA}.\footnote{Interoperability Solutions for European Public Administrations. \url{http://ec.europa.eu/isa/}}. L'idirizzo URI utilizzato è \url{http://www.w3.org/ns/locn\#} ed usa il prefisso \textbf{locn}. \newline Il vocabolario è composto da tre classi che sono:
+Il \textbf{Core Location} è un vocabolario utilizzato per rappresentare qualsiasi luogo in termini di nome, di indirizzo o di coordinate. Tale vocabolario fa parte del progetto \textbf{ISA}.\footnote{Interoperability Solutions for European Public Administrations \url{http://ec.europa.eu/isa/}} L'idirizzo URI utilizzato è \url{http://www.w3.org/ns/locn\#} ed usa il prefisso \textbf{locn}. \newline Il vocabolario è composto da tre classi che sono:
 \begin{itemize}
-	\item \textbf{Location}: utilizzata per identificare luoghi, città, stati,  
-	\item \textbf{Address}: utilizzata per gli indirizzi.Questa classe fa riferimento anche ad altre informazioni quali la casella postale, al numero civico, al codice di avviamento postale e così via,
+	\item \textbf{Location}: utilizzata per identificare luoghi, città, stati;  
+	\item \textbf{Address}: utilizzata per gli indirizzi.Questa classe fa riferimento anche ad altre informazioni quali la casella postale, al numero civico, al codice di avviamento postale e così via;
 	\item \textbf{Geometry}: fornisce latitudine e longitudine.
 \end{itemize} 
+Di seguito viene mostrato un semplice esempio:
+\begin{lstlisting}[style=htmlcssjs]
+<rdf:Description rdf:about="http://www.w3.org/ns/org#hasSite">
+	<rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/locn#location"/>
+</rdf:Description>
+<rdf:Description rdf:about="http://www.w3.org/ns/org#siteAddress">
+	<rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/locn#address"/>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.org/NET/c4dm/event.owl#place">
+	<rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/locn#location"/>
+</rdf:Description>
+\end{lstlisting}
 \textbf{Organization Ontology}, invece, è utilizzato per modellare le pubbliche amministrazioni, fornendo indicazioni relative ad organizzazioni, membri, macrostrutture e strutture fisiche.
 L'indirizzo URI utilizzato è \url{http://www.w3.org/TR/vocab-org/\#} ed usa il prefisso \textbf{org}.\newline
-La classe principale è \textbf{Organizzation} che scompone le organizzazioni in strutture gerarchiche.
+La classe principale è \textbf{Organizzation} che rappresenta le organizzazioni in strutture gerarchiche.
 Mentre la classe \textbf{FormalOrganizzation} scompone un'organizzazione che è riconosciuta in tutto il mondo, come ad esempio i governi.
 Per rappresentare un'organizzazione, come ad esempio un dipartimento o unità di supporto, che è parte di una organizzazione più grande si usa la classe \textbf{OrganizationalUnit}.
 Organization Ontology estende e utilizza termini da altri vocabolari, riportati nella seguente tabella:
@@ -814,23 +834,24 @@ Organization Ontology estende e utilizza termini da altri vocabolari, riportati 
 	\hline vcard & http://www.w3.org/2006/vcard/ns\#\\											\hline 	dct & http://purl.org/dc/terms/\\			
 	\hline
 \end{tabular}	
-\caption{Tabella degli stati di XMLHttpRequest.}	
+\caption{Tabella dei namespace più diffusi.}	
 \end{center}	
 \end{table}\newpage
 Tali vocabolari servono per organizzare al meglio la struttura organizzativa di aziende, società e comuni.
-Nel progetto è stato utilizzato un vocabolario creato dal \textbf{Dott.Cristiano Longo} che fa riferimento allo macro struttura del Comune di Catania.\footnote{\url{http://dydra.com/cristianolongo/comune-di-catania/sparql}}\newline
+Nel progetto è stata utilizzata una ontologia, resa disponibile attraverso un dataset RDF ed un corrispondente endpoint sparql, che fa riferimento allo macro struttura del Comune di Catania.\footnote{\url{http://dydra.com/cristianolongo/comune-di-catania/sparql}}\newline
 Tramite questo endpoint, si fa una specifica interrogazione in SPARQL, attraverso una chiamata AJAX. I dati ottenuti sono codificati tramite la codifica JSON.
+\newpage
 \subsection{Menù gerarchici}
 \label{sec:5.1}
-Un menu gerarchico è una struttura ad albero che simula l'aspetto e il comportamento della struttura a cartelle e sottocartelle utilizzato in tutti i S.O.\footnote{Sistemi Operativi.} Questo tipo di menù viene utilizzato nella stragrande maggioranza dei siti web proprio perché è facile da implementare e non occupa moltissimo spazio, inoltre in questo modo si possono realizzare strutture annidate e complesse ricche di voci, che sono ideali per l'organizzazione.\newline 
-Nel progetto il menù gerarchico è creato dinamicamente, cioè ad ogni valore che viene passato si controlla il genitore e i figli associati.
+Un menu gerarchico è una struttura ad albero che simula l'aspetto e il comportamento della struttura a cartelle e sottocartelle utilizzato in tutti i sistemi operativi. Questo tipo di menù viene utilizzato nella stragrande maggioranza dei siti web proprio perché è facile da implementare e non occupa moltissimo spazio, inoltre in questo modo si possono realizzare strutture annidate e complesse ricche di voci, che sono ideali per l'organizzazione.\newline 
+Nel progetto il menù gerarchico ha lo scopo di raggruppare gli uffici della base di conoscenza relativa alla macrostruttura del Comune di Catania, sotto forma di struttura ad albero gerarchico. Esso è creato dinamicamente, cioè ad ogni valore che viene passato si controlla il genitore e i figli associati.
 Per comprendere meglio elenchiamo i metodi e le classi, realizzati in Javascript, per la creazione del menù:
 \begin{itemize}
-	\item Classe \textbf{Tree}, che implementa l'albero N-ario.\footnote{Albero con n figli} Un albero N-ario ha i due elementi fondamentali che sono la \textbf{radice},\footnote{Root.} che ha n nodi che vengono chiamati figli e le \textbf{foglie},\footnote{Leaf.} che sono i nodi senza figli. Tutti gli altri nodi vengono chiamati nodi interni.\footnote{Fonte Wikipedia}
+	\item Classe \textbf{Tree}, che implementa un struttura ad albero. La struttura ad albero ha due elementi fondamentali che sono la \textbf{radice}, che ha n nodi che vengono chiamati figli e le \textbf{foglie}, che sono i nodi senza figli. Tutti gli altri nodi vengono chiamati nodi interni.
 La classe Tree	ha le seguenti variabili:
 \begin{itemize}
 	\item \textbf{value}: può essere qualsiasi valore, in questo progetto la si associa ad un indirizzo URI/IRI o a un nome della gerarchia o a una struttura complessa contenete sia URI che nomi;
-	\item \textbf{children}: un array,\footnote{Struttura dati complessa composto da celle di lunghezza n.} contenente i figli di un nodo.
+	\item \textbf{children}: un array, contenente i figli di un nodo.
 \end{itemize}
 ed i seguenti metodi:
 \begin{itemize}
@@ -839,21 +860,21 @@ ed i seguenti metodi:
 	\item \textbf{preOrder(), postOrder()}: metodi utilizzati per la visita dell'albero;
 	\item \textbf{high(), frontier()}: metodi informativi dell'albero.
 \end{itemize}			
-	\item Classe \textbf{Description}, struttura dati complessa che contiene tre variabili che sono:
+	\item Classe \textbf{Description}, in questa classe ad ogni ufficio, appartenente alla base di conoscenza della macrostruttura del Comune di Catania, viene associato tre variabili che sono:
 \begin{itemize}
-	\item \textbf{uri}: Indirizzo IRI/URI di un valore;
-	\item \textbf{name}: Nome di un valore;
-	\item \textbf{homepage}: Indirizzi IRI/URI che si collega alla pagina principale del sito web.
+	\item \textbf{uri}: corrispondente al suo indirizzo IRI/URI;
+	\item \textbf{name}: corrispondente al suo nome;
+	\item \textbf{homepage}: corrispondente la sua homepage che si collega alla pagina principale del sito web.
 \end{itemize}	
 i metodi di tale classe sono:
 \begin{itemize}
-	\item \textbf{getUri()}: Restituisce il valore di uri;
-	\item \textbf{getName()}: Restituisce il valore di name;
-	\item \textbf{getHomepage()} Restituisce il valore di homepage.
-\end{itemize} \newpage
+	\item \textbf{getUri()}: restituisce il valore di uri;
+	\item \textbf{getName()}: restituisce il valore di name;
+	\item \textbf{getHomepage()} restituisce il valore di homepage.
+\end{itemize} 
 \item Classe \textbf{Storage}, che è un contenitore di tutti i nodi, compresa la radice con i seguenti metodi:
 \begin{itemize}
-	\item \textbf{add(Description)}: istanza classe Tree(crea nodo all'interno dello storage);
+	\item \textbf{add(Description)}: crea nodo all'interno dello storage;
 	\item \textbf{get(Uri)}: restituisce nodo con la URI, se esiste; altrimenti NULL;
 	\item \textbf{getTrees()}: restituisce tutte le foglie.
 \end{itemize}
@@ -863,7 +884,7 @@ Il menù gerarchico nel progetto è creato sfruttando le classi appena elencate,
 	\item \textbf{createLiMenu()}, che crea un lista utilizzando i tag:
 	\begin{itemize}
 		\item <ul> definisce una lista non ordinata;
-		\item <li> creare la liste non ordinate, è sempre associato al tag <ul>.
+		\item <li> definisce gli elementi delle liste, è sempre associato al tag <ul>.
 	\end{itemize}
 	\item \textbf{createMenu()}, che crea il menu dinamico.
 \end{itemize}
@@ -888,20 +909,21 @@ Di seguito viene specificato, attraverso lo pseudo-codice, la creazione di tale 
 Il risultato sarà il seguente menù:
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[scale=0.4]{menu.png}
+	\includegraphics[scale=0.50]{menu.png}
 	\caption{Il menù gerarchico del progetto.}
 	\label{fig:9}
 \end{figure}
+\newpage
 \subsection{Codifica JSON}
 \label{sec:5.2}
-La codifica JSON\footnote{JAVASCRIPT Object Notatio} è un formato convenzionale che serve per lo scambio di dati fra client e server. Ha la stessa nomenclatura dell'XML, ma  a differenza di quest'ultimo, è molto leggero da analizzare, ed è anche molto semplice da realizzare.
-Il JSON è scritto interamente in JavaScript ed è  utilizzato, principalmente, per le chiamate AJAX.\footnote{Vedi Capitolo \ref{sec:5.3}}. I dati della codifica JSON possono essere di qualunque tipo. I principali valori sono:
+La codifica JSON\footnote{JAVASCRIPT Object Notatio} è un formato convenzionale che serve per lo scambio di dati fra client e server. E' molto leggero da analizzare, ed è anche molto semplice da realizzare.
+Il JSON è scritto interamente in JavaScript ed è  utilizzato, principalmente, per le chiamate AJAX.\footnote{Vedi Capitolo \ref{sec:5.3}} I dati della codifica JSON possono essere di qualunque tipo. I principali valori sono:
 \begin{itemize}
 	\item boolean;
 	\item stringhe;
 	\item interi; 
 	\item array sia semplici che associativi;
-	\item null;
+	\item null.
 \end{itemize} 
 Quindi tale codifica può essere utilizzata in un qualsiasi linguaggio di programmazione.
 Inoltre è facilmente leggibile da quasi tutti i browser moderni, visto che hanno il supporto nativo a JSON, mentre per quelli sprovvisti occorre utilizzare il comando \textbf{eval}. \newline Di seguito vediamo un esempio di codifica JSON
@@ -1014,13 +1036,13 @@ xmlhttp.send(querypart);
 \end{lstlisting}
 \end{figure}\newline
 Una volta creato un oggetto di tipo \textbf{getHTTPObject()}, la variabile \textbf{xmlhttp}, con i metodi \textbf{open} e \textbf{send}, si apre e si invia la richiesta al server.\newline
-Con open si posso effettuare due tipi di chiamata. La prima può essere fatta tramite GET, mentre la seconda può essere fatta tramite una chiamata POST. Per una chiamata di tipo POST però bisogna impostare gli headers,\footnote{serie di coppie chiave/valore specifici per uno scambio dati via interne} dato dal comando:
+Con open si posso effettuare due tipi di chiamata. La prima può essere fatta tramite GET, mentre la seconda può essere fatta tramite una chiamata POST. Per una chiamata di tipo POST però bisogna impostare gli header,\footnote{Serie di coppie chiave/valore specifici per uno scambio dati via internet.} attraverso il comando:
 \begin{figure}[htb]
 \begin{lstlisting}[style=htmlcssjs]
 xmlhttp.setRequestHeader('Content-type','application/x-www-form-urlencoded')
 \end{lstlisting}
 \end{figure}\newline
-La variabile \textbf{onreadystatechange} chiama la funzione ogni volta che il valore ottenuto dal metodo readyState cambia.
+Alla variabile \textbf{onreadystatechange} viene associata una funzione; tale funzione dipende dal valore assunto dal metodo readyState.
 Il metodo \textbf{readyState} tiene traccia dello stato di XMLHttpRequest e può assumere determinati valori:
 \begin{table}[htb]
 \begin{center}				
@@ -1035,7 +1057,7 @@ Il metodo \textbf{readyState} tiene traccia dello stato di XMLHttpRequest e può
 \end{tabular}	
 \caption{Tabella degli stati di XMLHttpRequest.}	
 \end{center}	
-\end{table}\newpage
+\end{table}\newline
 Infine con il metodo \textbf{status} si controlla la risposta dal server e può  assumere diversi valori:
 \begin{itemize}
 	\item 200 Il server è stato trovato;
@@ -1044,13 +1066,13 @@ Infine con il metodo \textbf{status} si controlla la risposta dal server e può 
 	\item 500 Internal Server Error;
 	\item ...
 \end{itemize}
-Quando si verifica che \textbf{readyState} ha valore 4 e \textbf{status} ha valore 200, il client comunica con il server e il risultato, dato dal metodo \textbf{responseText} viene convertito in una stringa che poi, successivamente,  si applicherà la codifica JSON.
-Tuttavia però tale chiamata non sempre va a buon fine. I browser moderni hanno una sorta di restrizione\footnote{Same-domain-policy}, cioè che non si può fare una richiesta HTTP da risorse che si trovano su server diversi rispetto a quello iniziale che ha inviato lo script.\newline
-Tale richiesta viene chiamata richiesta \textbf{Cross-domain},\footnote{Capitolo \ref{sec:5.4}}.
+Quando si verifica che \textbf{readyState} ha valore 4 e \textbf{status} ha valore 200, il client comunica con il server e il risultato, dato dal metodo \textbf{responseText} viene convertito in una stringa alla quale, successivamente, si applicherà la codifica JSON.
+Tuttavia però tale chiamata non sempre va a buon fine. I browser moderni hanno una sorta di restrizione,\footnote{Same-domain-policy} cioè che non si può fare una richiesta HTTP da risorse che si trovano su server diversi rispetto a quello iniziale che ha inviato lo script.\newline
+Tale richiesta viene chiamata richiesta \textbf{Cross-domain}.\footnote{Capitolo \ref{sec:5.4}}
 \subsection{Il problema delle richieste Cross-Domain}
 \label{sec:5.4}
-Quando si effettua un chiamata AJAX verso domini diversi da quello da cui proviene la pagina, i moderni browser applicano una restrizione che impediscono l'esecuzione dello script.
-Una tecnica per aggirare il problema è il \textbf{JSONP}\footnote{JSON with Padding}, che realizzare una funzione che permetta di inserire nuovi tag <script> all'interno della pagina e una funzione che gestisca i dati ricevuti dal server come mostrato nel seguente codice:
+Quando si effettua un chiamata AJAX verso domini diversi da quello da cui proviene la pagina, i moderni browser applicano una restrizione che impedisce l'esecuzione dello script.
+Una tecnica per aggirare il problema è il \textbf{JSONP},\footnote{JSON with Padding} che consiste nel realizzare una funzione che permetta di inserire nuovi tag <script> all'interno della pagina e una funzione che gestisca i dati ricevuti dal server come mostrato nel seguente codice:
 
 \begin{lstlisting}[style=htmlcssjs]
 function requestJSONP(endpoint,query,callback){
@@ -1064,7 +1086,7 @@ function requestJSONP(endpoint,query,callback){
     });
 }
 \end{lstlisting}
-La sintassi utilizzata in questo breve codice è il \textbf{jQuery}, che è un framework JavaScript.
+La sintassi utilizzata in questo breve codice è \textbf{jQuery}, che è un framework JavaScript.
 Con il jQuery è possibile realizzare, attraverso pochissime righe di codice, script molto complessi. Il punto di forza di questo framework è che è compatibile con tutti i browser in circolazione. \newline
 Analizzando il codice notiamo
 \begin{itemize}
@@ -1080,7 +1102,7 @@ In questo modo riusciamo ad aggirare il problema e ad ottenere la codifica JSON 
 In questo ultimo capitolo verranno illustrati sia l'elenco dei programmi utilizzati, sia il codice del progetto.
 \subsection{Programmi utilizzati}
 \label{sec:6.1}
-Il progetto è stato realizzato utilizzando due S.O.:
+Il progetto è stato realizzato utilizzando due sistemi operativi:
 \begin{itemize}
 	\item \textbf{Linux Mint 17.1 Rebecca}: per lo sviluppo del codice e per la stesura della tesi;
 	\item \textbf{Windows 10}: per la pubblicazione su internet.
@@ -1097,7 +1119,7 @@ La parte codice è stata realizzata attraverso il Notepaqq.
 	\label{fig:10}
 \end{figure}
 \newpage
-		\item	\textbf{TexMaker}:\footnote{\url{http://www.xm1math.net/texmaker/}} è un editor LaTeX gratuito  per Linux, MacOSX e Windows rilasciato sotto la licenza \textbf{GNU General Public License}.\footnote{Licenza per software libero.}
+		\item	\textbf{TexMaker}:\footnote{\url{http://www.xm1math.net/texmaker/}} è un editor LaTeX gratuito  per Linux, MacOSX e Windows rilasciato sotto la licenza \textbf{GNU General Public License}.\footnote{Licenza per software libero \url{https://gnu.org/licenses/gpl.html}.}
 Integra molti strumenti necessari per sviluppare documenti con il linguaggio LaTeX, quali il supporto unicode, il controllo ortografico, il completamento automatico, il raggruppamento del codice e un visualizzatore di PDF. La scrittura della tesi in LaTeX è realizzata attraverso questo programma.
 \begin{figure}[htpb]
 	\centering
@@ -1107,8 +1129,8 @@ Integra molti strumenti necessari per sviluppare documenti con il linguaggio LaT
 \end{figure}
 \end{enumerate}
 La parte della pubblicazione su internet è stata effettuata su Windows 10; il codice del progetto è stato pubblicato su un \textbf{free-hosting},\footnote{Un servizio di rete che consiste nell'allocare su un server web pagine web o un'applicazione web} ed è stato scelto \textbf{GitHub},\footnote{\url{https://github.com/}}un portale web ideale per ospitare progetti software privati, gratuiti e open-source. 
-Basato sul software \textbf{Git}\footnote{sviluppato da Linus Torvalds il creatore di Linux.} GitHub è stato lanciato nel 2009 da Tom Preston-Werner, Chris Wanstrath e PJ Hyett, diventando ben presto la più autorevole piattaforma per lo sviluppo collaborativo di software.\newline 
-Il software Git è un software di controllo di versione, ciò vuol dire che controlla e gestisce gli aggiornamenti di un progetto senza sovrascrivere nessuna parte del progetto stesso. In questo modo è possibile ritornare indietro se l'aggiornamento del progetto non dovesse andare a buon fine.
+Basato sul sistema \textbf{Git}\footnote{Sviluppato da Linus Torvalds il creatore di Linux.} GitHub è stato lanciato nel 2009 da Tom Preston-Werner, Chris Wanstrath e PJ Hyett, diventando ben presto la più autorevole piattaforma per lo sviluppo collaborativo di software.\newline 
+Git è un sistema di controllo di versione, ciò vuol dire che controlla e gestisce gli aggiornamenti di un progetto senza sovrascrivere nessuna parte del progetto stesso. In questo modo è possibile ritornare indietro se l'aggiornamento del progetto non dovesse andare a buon fine.
 
 \begin{figure}[!htpb]
 	\centering
@@ -1117,7 +1139,7 @@ Il software Git è un software di controllo di versione, ciò vuol dire che cont
 	\label{fig:12}
 \end{figure}
 Questo portale web è un mezzo molto potente, perché si può collaborare con altre persone che non si trovano nella stessa sede, in più in caso di malfunzionamento del pc, non si perde il lavoro svolto; infatti è ideale per la stesura di una tesi di laurea.\newline
-Una volta effettuato l'accesso al portale web possiamo creare i \textbf{repository}\footnote{è un ambiente di un sistema informativo, in cui vengono gestiti i metadati, attraverso tabelle relazionali. Fonte Wikipedia.} e gestirli, come mostrato in \textbf{Figura \ref{fig:13}}.
+Una volta effettuato l'accesso al portale web possiamo creare i \textbf{repository}\footnote{E' un ambiente di un sistema informativo, in cui vengono gestiti i metadati, attraverso tabelle relazionali. Fonte Wikipedia.} e gestirli, come mostrato in \textbf{Figura \ref{fig:13}}.
 \begin{figure}[!htpb]
 	\centering
 	\includegraphics[scale=0.30]{github2.png}
@@ -1127,8 +1149,8 @@ Una volta effettuato l'accesso al portale web possiamo creare i \textbf{reposito
 \newline
 Bisogna fornire il nome del repository e scegliere se renderlo pubblico o privato.
 Una volta creato il repository, bisogna pubblicare il codice su GitHub attraverso un comando Commit eseguito su un Terminale.\footnote{cmd per windows, shell per Linux}
-Per agevolare questo processo e per evitare errori si utilizza un client Git, cioè \textbf{SourceTree}.\footnote{\url{https://www.sourcetreeapp.com/}}
-SourceTree è basato su software Git e Mercurial e gestisce tutti i repository di GitHub attraverso un'interfaccia semplice.
+Per agevolare questo processo e per evitare errori è possibile utilizzare un client grafico, ad esempio, \textbf{SourceTree}.\footnote{\url{https://www.sourcetreeapp.com/}}
+SourceTree è basato su Git e Mercurial e gestisce tutti i repository di GitHub attraverso un'interfaccia semplice.
 Una volta fatta la registrazione fornendo un email e la password è 
 possibile creare, clonare, eseguire commit, con un semplice clic.
 \begin{figure}[!htpb]
@@ -1791,6 +1813,7 @@ function Tree(value){
 	\item \url{http://www.dmi.unict.it/~longo/comunect/publicServicesLOD.pdf}
 	\item {\url{http://dydra.com/cristianolongo/comune-di-catania/@query}}
 	\item \url{http://www.w3schools.com/}
+	\item \url{http://it.dbpedia.org/}
 
 \end{itemize}
 
