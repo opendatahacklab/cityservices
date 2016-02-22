@@ -299,6 +299,15 @@
 
 \newpage
 
+\vspace*{80pt}
+Questa tesi \`e stata realizzata nell'ambito del progetto
+\begin{tt}opendatahacklab\end{tt},\footnote{\url{http://opendatahacklab.org}}
+nell'ambito dell'accordo di collaborazione e ricerca scientifica tra l'Univiersit\`a degli
+studi di Catania, tramite il dipartimento di matematica ed informatica, e 
+l'associazione Hackspace Catania (convenzione del 18 Settembre 2015, numero di
+protocollo 113964). 
+\newpage
+
 \tableofcontents
 \newpage
 
@@ -315,8 +324,8 @@ Infine verranno indicati tutti gli strumenti adoperati, quali i programmi e i si
 
 \section{Web Semantico}
 \label{sec:2}
-Il termine Web Semantico è un concetto nato solo da pochi anni, dalla mente di Tim Berners-Lee, il quale non solo ha ideato il Word Wide Web(WWW) e il W3C\footnote{\url{http://www.w3.org/}}(World Wide Web Consortium), ma lo ha anche trasformato in qualcosa di rivoluzionario. L'idea di base era quella di associare a tutti i documenti caricati nel web, dei \textbf{metadati}\footnote{Informazione che descrive un insieme di dati. Fonte Wikipedia.} in modo che qualsiasi macchina, motore di ricerca e applicazione fosse in grado di elaborarli con estrema facilità.\newline
-Inizialmente si adoperava il semplice \textbf{collegamento ipertestuale,}\footnote{Rinvio da un'unità informativa su supporto digitale ad un'altra. Fonte Wikipedia.} le macchine si limitavano solamente a trasmettere il contenuto, senza possibilità di capire com'era strutturata la pagina.
+Il termine Web Semantico\cite{BerHenLas2001, Lee1998, ShaNigBerHal2006} è un
+concetto nato solo da pochi anni, dalla mente di Tim Berners-Lee, il quale non solo ha ideato il Word Wide Web(WWW) e il W3C\footnote{\url{http://www.w3.org/}}(World Wide Web Consortium), ma lo ha anche trasformato in qualcosa di rivoluzionario. L'idea di base era quella di associare a tutti i documenti caricati nel web, dei \textbf{metadati}\footnote{Informazione che descrive un insieme di dati. Fonte Wikipedia.} in modo che qualsiasi macchina, motore di ricerca e applicazione fosse in grado di elaborarli con estrema facilità.\newline Inizialmente si adoperava il semplice \textbf{collegamento ipertestuale,}\footnote{Rinvio da un'unità informativa su supporto digitale ad un'altra. Fonte Wikipedia.} le macchine si limitavano solamente a trasmettere il contenuto, senza possibilità di capire com'era strutturata la pagina.
 A tal proposito si utilizza il concetto di \textbf{rappresentazione della conoscenza}.
 I sistemi di rappresentazione della conoscenza permettono di usare semantiche formali e simbolismi di carattere matematico, cioè una serie di costrutti sia per definire la sintassi del dominio di interesse, sia una serie di operatori che permettano di dare un significato alle asserzioni.
 Con questo ragionamento possiamo quindi costruire una \textbf{base di conoscenza},\footnote{Ambiente volto a facilitare la raccolta, l'organizzazione e la distribuzione della conoscenza. Fonte Wikipedia.} che permette agli applicativi software e agli agenti automatici di scaricare diverse informazioni che sono relative, per esempio, ad aziende oppure enti culturali e utilizzarle in maniera più adeguata. In questo progetto si utilizza un base di conoscenza realizzata in RDF\footnote{Vedi Capitolo \ref{sec:2.2}} ed elaborata attraverso il linguaggio di programmazione Javascript, ma ne parleremo più avanti.\newline
@@ -455,7 +464,8 @@ Nelle seguenti tabelle viene descritto le classi e le proprietà utilizzate dal 
 \subsection{Logiche descrittive}
 \label{sec:2.3}
 
-La logica descrittiva\footnote{Description Logics} è una notazione formale utilizzata nella rappresentazione della conoscenza. Ogni nodo, oggetto o categoria, è caratterizzato da un elenco di proprietà.
+La logica descrittiva\cite{DLHANDBOOK2}\footnote{Description Logics} è una
+notazione formale utilizzata nella rappresentazione della conoscenza. Ogni nodo, oggetto o categoria, è caratterizzato da un elenco di proprietà.
 Dato un particolare dominio di conoscenza, la logica descrittiva individua i concetti primari, le categorie più rilevanti, e successivamente analizza le proprietà degli oggetti, al fine di migliorare la descrizione delle classificazioni e delle sotto-classificazioni del dominio di conoscenza. Ogni DL è basata da blocchi sintattici di base che sono:
 \begin{itemize}
 \item \textbf{Concetti}: corrispondenti a predicati unari che, combinati tra loro, danno origine a predicati complessi; 
@@ -779,7 +789,13 @@ Basta scrivere la query utilizzando la nomenclatura dello SPARQL descritta prece
 \newpage
 \section{Ontologie per la rappresentazione dei servizi pubblici}
 \label{sec:5}
-L’Agenzia per l’Italia Digitale (AgID\footnote{\url{www.agid.gov.it}}) ha l'obiettivo di pubblicare dati e documenti relativi ai servizi, alla struttura e alle attività svolte sul sito e di fornire a pubbliche amministrazioni, imprese e cittadini le tecniche utilizzate dal Web Semantico. In pratica vengono forniti vocabolari, sviluppati tramite la pubblicazione \textbf{Linked Open Data}. Tale metodo consiste nello strutturare i dati in modo da poter essere interconnessi e diventare più utili attraverso delle interrogazioni, fatte per esempio in linguaggio SPARQL. 
+L’Agenzia per l’Italia Digitale (AgID\footnote{\url{www.agid.gov.it}}) ha
+l'obiettivo di pubblicare dati e documenti relativi ai servizi, alla struttura e
+alle attività svolte sul sito e di fornire a pubbliche amministrazioni, imprese
+e cittadini le tecniche utilizzate dal Web Semantico. In pratica vengono forniti
+vocabolari, sviluppati tramite la pubblicazione \textbf{Linked Open
+Data}\cite{BizHeaBer2009}.
+Tale metodo consiste nello strutturare i dati in modo da poter essere interconnessi e diventare più utili attraverso delle interrogazioni, fatte per esempio in linguaggio SPARQL.
 Nella tabella successiva vengono indicati alcuni dei principali vocabolari utilizzati.
 
 \begin{table}[!htbp]
@@ -1816,6 +1832,9 @@ function Tree(value){
 	\item \url{http://it.dbpedia.org/}
 
 \end{itemize}
+
+\bibliographystyle{plain}
+\bibliography{biblio}
 
 \end{document}
 
