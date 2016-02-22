@@ -304,8 +304,8 @@
 
 \section{Introduzione}
 Lo scopo di questa tesi di laurea è di realizzare una libreria JavaScript per il trattamento delle ontologie del Web Semantico.
-Tale libreria è divisa in due parti. Nella prima parte si concentra sulla informazioni geolocalizzate, attraverso il sito web Leaflet, che fornisce librerie per integrare una mappa on-line su una pagina web, spiegato nel terzo capitolo, mentre nella seconda parte utilizza SPARQL, dove attraverso una query otteniamo i dati tramite la codifica JSON, spiegato nel quarto capitolo. 
-Il resto della tesi è strutturato come segue: nel secondo capitolo vedremo i concetti principali del Web Semantico e sulle logiche descrittive. Nel quinto capitolo si parlerà  dei Linked Open Data, che sono dei vocabolari messi a disposizione dall'AgID coi quali si realizzerà, insieme alla base di conoscenza del dott.Longo Cristiano, che rappresenta la macrostruttura del Comune di Catania, sia il menù gerarchico sia le query necessarie per la creazione dei markers.
+Tale libreria è divisa in due parti. Nella prima parte si concentra sulla informazioni geolocalizzate, attraverso il sito web Leaflet, che fornisce librerie per integrare una mappa on-line su una pagina web (come spiegato nel terzo capitolo), mentre nella seconda parte utilizza SPARQL, dove attraverso una query otteniamo i dati tramite la codifica JSON (come spiegato nel quarto capitolo). 
+Il resto della tesi è strutturato come segue: nel secondo capitolo vedremo i concetti principali del Web Semantico e delle logiche descrittive. Nel quinto capitolo si parlerà  dei Linked Open Data, che sono dei vocabolari messi a disposizione dall'AgID coi quali si realizzerà, insieme alla base di conoscenza del dott.Longo Cristiano, che rappresenta la macrostruttura del Comune di Catania, sia il menù gerarchico sia le query necessarie per la creazione dei markers.
  Per ogni ufficio della macrostruttura del Comune di Catania è indicato una latitudine e una longitudine e ci serviremo dei markers, che sono dei puntini di colore blu, dove cliccandoci sopra si apre una tendina contenente tutte le informazioni relative all'ufficio, per associare tali coordinate. 
 Infine verranno indicati tutti gli strumenti adoperati, quali i programmi e i siti web, per la realizzazione del progetto, descritti nel capitolo sei. 
 
@@ -315,7 +315,7 @@ Infine verranno indicati tutti gli strumenti adoperati, quali i programmi e i si
 
 \section{Web Semantico}
 \label{sec:2}
-Il termine Web Semantico è un concetto nato solo da pochi anni, dalla mente di Tim Berners-Lee, il quale non solo ha ideato il Word Wide Web(WWW) e il W3C\footnote{\url{http://www.w3.org/}}(World Wide Web Consortium), ma lo ha anche trasformato in qualcosa di rivoluzionario. L'idea di base era quella di associare a tutti i documenti caricati nel web, dei \textbf{metadati}\footnote{Informazione che descrive un insieme di dati. Fonte Wikipedia.} in modo che qualsiasi macchina, motore di ricerca e applicazione fosse in grado di elaborarli con estrema facilità.\newline
+Il termine Web Semantico è un concetto nato solo da pochi anni, dalla mente di Tim Berners-Lee, il quale non solo ha ideato il Word Wide Web (WWW) e il W3C\footnote{\url{http://www.w3.org/}}(World Wide Web Consortium), ma lo ha anche trasformato in qualcosa di rivoluzionario. L'idea di base era quella di associare a tutti i documenti caricati nel web, dei \textbf{metadati}\footnote{Informazione che descrive un insieme di dati. Fonte Wikipedia.} in modo che qualsiasi macchina, motore di ricerca e applicazione fosse in grado di elaborarli con estrema facilità.\newline
 Inizialmente si adoperava il semplice \textbf{collegamento ipertestuale,}\footnote{Rinvio da un'unità informativa su supporto digitale ad un'altra. Fonte Wikipedia.} le macchine si limitavano solamente a trasmettere il contenuto, senza possibilità di capire com'era strutturata la pagina.
 A tal proposito si utilizza il concetto di \textbf{rappresentazione della conoscenza}.
 I sistemi di rappresentazione della conoscenza permettono di usare semantiche formali e simbolismi di carattere matematico, cioè una serie di costrutti sia per definire la sintassi del dominio di interesse, sia una serie di operatori che permettano di dare un significato alle asserzioni.
@@ -368,7 +368,7 @@ Le combinazioni tra Risorse, Proprietà e Valori prendono il nome di \textbf{Ass
 	\label{fig:3}
 \end{figure}\newpage 
 
-Il soggetto e l'oggetto rappresentano le due risorse, mentre il predicato rappresenta la natura del loro rapporto.\newline Ecco un esempio di triple in RDF:\newline <Napoleone> <è nato ad> < Ajaccio>\newline <Napoleone> <perse a> < Waterloo>.\newline <Jacques-Louis David> <dipinse l'incoronazione di> < Napoleone>.\newline Come si evince dall'esempio Napoleone è soggetto di due asserzioni e oggetto dell'altra; questa caratteristica importante, cioè quella di avere la stessa risorsa sia in posizione di soggetto e sia in posizione di oggetto, permette di trovare connessioni tra triple e quindi reperire più informazioni.
+Il soggetto e l'oggetto rappresentano le due risorse, mentre il predicato rappresenta la natura del loro rapporto.\newline Ecco un esempio di triple in RDF:\newline <Napoleone> <è nato ad> < Ajaccio>\newline <Napoleone> <perse a> < Waterloo>.\newline <Jacques-Louis David> <dipinse l'incoronazione di> < Napoleone>.\newline Come si evince dall'esempio, Napoleone è soggetto di due asserzioni e oggetto dell'altra; questa caratteristica importante, cioè quella di avere la stessa risorsa sia in posizione di soggetto e sia in posizione di oggetto, permette di trovare connessioni tra triple e quindi reperire più informazioni.
 Si realizza un grafo dove il soggetto e l'oggetto rappresentano i nodi mentre al predicato corrisponde l'arco.
 
 \begin{figure}[ht]
@@ -399,8 +399,8 @@ Un'altra caratteristica importante del modello RDF e che è le risorse possono e
 	\item \textbf{Sequence}, a differenza di Bag, l'insieme è ordinato;
 	\item \textbf{Alternative}, è una lista di risorse che definiscono un'alternativa per il valore singolo di una proprietà.\footnote{Fonte Wikipedia.}
 \end{itemize} 
-Per definire schemi e vocabolari per i metadati, si utilizza un'estensione di RDF chiamata RDF Schema, che fornisce meccanismi per gruppi di risorse correlate e descrive le risorse con le classi, le proprietà e i valori.\newline Il sistema di classi e delle proprietà di RDF Schema, fornisce elementi di base per la descrizione delle ontologie, per vincolare domini e codomini delle relazioni, definire classi di oggetti e relazioni tra classi.
-Nelle seguenti tabelle viene descritto le classi e le proprietà utilizzate dal RDF Schema:	\newline		
+Per definire schemi e vocabolari per i metadati, si utilizza un'estensione di RDF chiamata RDF Schema, che fornisce meccanismi per gruppi di risorse correlate e descrive le risorse con le classi, le proprietà e i valori.\newline Il sistema di classi e delle proprietà di RDF Schema fornisce elementi di base per la descrizione delle ontologie, per vincolare domini e codomini delle relazioni, definire classi di oggetti e relazioni tra classi.
+Nelle seguenti tabelle vengono descritte le classi e le proprietà utilizzate dal RDF Schema:	\newline		
 \begin{table}[!htb]
 \begin{center}				
 \begin{tabular}{|>{\small}l|>{\small}l|}
@@ -455,32 +455,32 @@ Nelle seguenti tabelle viene descritto le classi e le proprietà utilizzate dal 
 \subsection{Logiche descrittive}
 \label{sec:2.3}
 
-La logica descrittiva\footnote{Description Logics} è una notazione formale utilizzata nella rappresentazione della conoscenza. Ogni nodo, oggetto o categoria, è caratterizzato da un elenco di proprietà.
+La logica descrittiva (DL\footnote{Description Logics}) è una notazione formale utilizzata nella rappresentazione della conoscenza. Ogni nodo, oggetto o categoria, è caratterizzato da un elenco di proprietà.
 Dato un particolare dominio di conoscenza, la logica descrittiva individua i concetti primari, le categorie più rilevanti, e successivamente analizza le proprietà degli oggetti, al fine di migliorare la descrizione delle classificazioni e delle sotto-classificazioni del dominio di conoscenza. Ogni DL è basata da blocchi sintattici di base che sono:
 \begin{itemize}
 \item \textbf{Concetti}: corrispondenti a predicati unari che, combinati tra loro, danno origine a predicati complessi; 
 \item \textbf{Ruoli}: corrispondenti a predicati binari ed eventualmente operatori;
 \item \textbf{Individui}: entità astratte o concrete usate nelle asserzioni.
 \end{itemize}
-Una base di conoscenza per le DL è costituito da:
+Una base di conoscenza per le DL è costituita da:
 \begin{itemize}
-\item un insieme finito di assiomi \textbf{Tbox}(terminalogical box);
+\item un insieme finito di assiomi \textbf{Tbox} (terminalogical box);
 \item un insieme finito di asserzioni \textbf{Abox} (assertional box).
 \end{itemize}
 
-Il TBox contiene frasi che descrivono gerarchie di concetti o di ruoli, mentre l'Abox è un insieme finito di asserzioni di concetto o di ruolo (ad esempio, le relazioni tra gli individui e concetti).
+Il TBox contiene frasi che descrivono gerarchie di concetti o di ruoli, mentre l'Abox è un insieme finito di asserzioni di concetto o di ruolo (ad esempio, le relazioni tra gli individui e concetti).\newline
 Introduciamo adesso un concetto sintattico molto importante per lo sviluppo delle logiche descrittive, cioè il \textbf{linguaggio descrittivo}.
-Un linguaggio descrittivo è il linguaggio attraverso cui si esprimono prescrizioni, aventi la funzione di indirizzare il comportamento degli individui. \newline
-\textbf{Definizione}. \newline Un linguaggio descrittivo consiste di una terna di insiemi finiti. \textbf{(C, R, Ob)}. Gli elementi di \textbf{C} sono indicati con le lettere A, B, . . . e sono chiamati concetti atomici; gli elementi di \textbf{R} sono indicati con le lettere R, S, . . . e sono detti
-ruoli, mentre gli elementi di \textbf{Ob} sono indicati con le lettere a, b, . . . e sono detti nomi degli oggetti.\footnote{ \url{http://homes.di.unimi.it/~ghilardi/logica2/DL.pdf}). Introduzione alle Logiche Descrittive di Silvio Ghilardi}\newline
-Fra i costruttori di concetti annoveriamo certamente gli operatori booleani che indichiamo con $\neg$(negazione), $\sqcap$(intersezione), $\sqcup$(unione). \newline Ci riserveremo anche di usare rispettivamente per il concetto universale $\top$(sempre soddisfatto) e  per il concetto contraddittorio $\bot$(mai soddisfatto).\newline
-Un linguaggio descrittivo si può scrivere nel seguente modo $\I = (\Delta^\I,\cdot^\I)$ dove $\Delta^\I$ rappresenta il dominio dell'interpretazione, 
+Si tratta del linguaggio attraverso cui si esprimono prescrizioni, aventi la funzione di indirizzare il comportamento degli individui. \newline
+\textbf{Definizione}. \newline Un linguaggio descrittivo consiste di una terna di insiemi finiti \textbf{(C, R, Ob)}. Gli elementi di \textbf{C} sono indicati con le lettere A, B, \ldots e sono chiamati concetti atomici; gli elementi di \textbf{R} sono indicati con le lettere R, S, \ldots e sono detti
+ruoli, mentre gli elementi di \textbf{Ob} sono indicati con le lettere a, b, \ldots e sono detti nomi degli oggetti.\footnote{ \url{http://homes.di.unimi.it/~ghilardi/logica2/DL.pdf}). Introduzione alle Logiche Descrittive di Silvio Ghilardi}\newline
+Fra i costruttori di concetti annoveriamo certamente gli operatori booleani che indichiamo con $\neg$ (negazione), $\sqcap$ (intersezione), $\sqcup$ (unione). \newline Ci riserveremo anche di usare rispettivamente per il concetto universale $\top$ (mai soddisfatto) e  per il concetto contraddittorio $\bot$ (sempre soddisfatto).\newline
+Un linguaggio descrittivo si può scrivere nel seguente modo $\I = (\Delta^\I,\cdot^\I)$, dove $\Delta^\I$ rappresenta il dominio dell'interpretazione, 
 mentre $\cdot^\I$ rappresenta la funzione di interpretazione, che assegna:
 \begin{itemize}
 	\item ad ogni concetto atomico A$\in$\textbf{C} un insieme  $A^{\I}\subseteq \Delta^\I$;
-	\item ad ogni ruolo R$\in$\textbf{R} R una relazione binaria $R^{\I}\subseteq 	\Delta^{\I}$ x $\Delta^{\I} $;
+	\item ad ogni ruolo R$\in$\textbf{R} una relazione binaria $R^{\I}\subseteq 	\Delta^{\I}$ x $\Delta^{\I} $;
 	\item ad ogni nome di oggetto a$\in$\textbf{Ob} un elemento $a^{\I}\in \Delta^\I$.
-\end{itemize}  Una volta fatta la premessa sul linguaggio descrittivo, definiamo adesso la logica descrittiva di base chiamata $\alc$\footnote{Attribute Language with Complement} e definiamo i seguenti concetti:
+\end{itemize}  Dopo il linguaggio descrittivo, definiamo adesso la logica descrittiva di base chiamata $\alc$\footnote{Attribute Language with Complement} e definiamo i seguenti concetti:
 \begin{itemize}
 \item $\top^{\I}=\Delta^\I$;
 \item $\bot^{\I}=0$;
@@ -508,7 +508,7 @@ $\{a\}^{\I}=\{a^{\I}\}$
 $\{a_1,...a_n\}^{\I}=\{a_1^{\I},...a_n^{I}\}$
 \end{center}
 \end{enumerate}
-Per estendere il linguaggio si dice che $\I$ è modello $\models$ di:\newline
+Per estendere il linguaggio si dice che $\I$ è modello di (in simboli: $\models$):\newline
 \textbf{TBox} se:
 \begin{center}
 	$\I \models C \sqsubseteq D$ se e soltanto se $C^{\I} \subseteq D^{\I}$	
@@ -526,13 +526,11 @@ Per estendere il linguaggio si dice che $\I$ è modello $\models$ di:\newline
 \begin{center}
 	$\I \models \A$ se e soltanto se $\I \models \phi \forall \phi \in \A $
 \end{center}
-Infine si definisce \textbf{Base di Conoscenza} $\K$ la coppia ordinata $(\A,\T) $ e l'interpretazione $\I$ è modello della base di conoscenza se:
+Infine si definisce \textbf{Base di Conoscenza} $\K$ la coppia ordinata $(\A,\T)$.  Un'interpretazione $\I$ è modello della base di conoscenza \K$ se:
 \begin{center}
 	$\I \models \K$ se e soltanto se $\I \models \T$ e $\I \models \A $
 \end{center}
-
 \newpage
-
 \section{Mappe on-line per siti web}
 \label{sec:3}
 La realizzazione del portale è stata resa possibile grazie alle librerie fornite dal sito web \textbf{Leaflet}.\footnote{\url{http://leafletjs.com/}}\newline Leaflet è una moderna libreria open-source realizzata in JavaScript e ha lo scopo di rendere interattive le mappe per utilizzarle in qualsiasi piattaforma si voglia, che sia desktop o mobile. Lo sviluppatore di tale libreria è Vladimir Agafonkin che, con l'aiuto di un team di collaboratori dedicati, ha realizzato una semplice e versatile libreria grande circa 33 KByte. Inoltre utilizzando la tecnologia \textbf{HTML5} e \textbf{CSS3} è accessibile sui browser moderni quali Chrome, Firefox, Safari e Internet Explorer. Può essere anche accessibile per i browser più datati e ha anche una buona e facile documentazione on-line. Infine ha un'estesa e vasta gamma di plugin, che si possono facilmente integrare rendendo il codice più compatto possibile e di facile intuizione.
