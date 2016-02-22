@@ -302,8 +302,8 @@
 \vspace*{80pt}
 Questa tesi \`e stata realizzata nell'ambito del progetto
 \begin{tt}opendatahacklab\end{tt},\footnote{\url{http://opendatahacklab.org}}
-nell'ambito dell'accordo di collaborazione e ricerca scientifica tra l'Univiersit\`a degli
-studi di Catania, tramite il dipartimento di matematica ed informatica, e 
+dell'accordo di collaborazione e ricerca scientifica tra l'Universit\`a degli
+Studi di Catania, tramite il Dipartimento di Matematica ed Informatica, e 
 l'associazione Hackspace Catania (convenzione del 18 Settembre 2015, numero di
 protocollo 113964). 
 \newpage
@@ -544,7 +544,7 @@ $(\A,\T)$.  Un'interpretazione $\I$ è modello della base di conoscenza $\K$ se:
 \newpage
 \section{Mappe on-line per siti web}
 \label{sec:3}
-La realizzazione del portale è stata resa possibile grazie alle librerie fornite dal sito web \textbf{Leaflet}.\footnote{\url{http://leafletjs.com/}}\newline Leaflet è una moderna libreria open-source realizzata in JavaScript e ha lo scopo di rendere interattive le mappe per utilizzarle in qualsiasi piattaforma si voglia, che sia desktop o mobile. Lo sviluppatore di tale libreria è Vladimir Agafonkin che, con l'aiuto di un team di collaboratori dedicati, ha realizzato una semplice e versatile libreria grande circa 33 KByte. Inoltre utilizzando la tecnologia \textbf{HTML5} e \textbf{CSS3} è accessibile sui browser moderni quali Chrome, Firefox, Safari e Internet Explorer. Può essere anche accessibile per i browser più datati e ha anche una buona e facile documentazione on-line. Infine ha un'estesa e vasta gamma di plugin, che si possono facilmente integrare rendendo il codice più compatto possibile e di facile intuizione.
+La realizzazione del portale è stata resa possibile grazie alle librerie fornite dal sito web \textbf{Leaflet}.\footnote{\url{http://leafletjs.com/}}\newline Leaflet è una moderna libreria open-source realizzata in JavaScript e ha lo scopo di rendere interattive le mappe per utilizzarle in qualsiasi piattaforma si voglia, che sia desktop o mobile. Lo sviluppatore di tale libreria è Vladimir Agafonkin che, con l'aiuto di un team di collaboratori dedicati, ha realizzato una semplice e versatile libreria grande circa 33 KByte. Inoltre utilizzando la tecnologia \textbf{HTML5} e \textbf{CSS3} essa è accessibile sui browser moderni quali Chrome, Firefox, Safari e Internet Explorer. Può essere anche accessibile per i browser più datati e ha anche una buona e facile documentazione on-line. Infine ha un'estesa e vasta gamma di plugin, che si possono facilmente integrare rendendo il codice molto compatto possibile e di facile intuizione.
 
 \subsection{Caricamento mappa}
 \label{sec:3.1}
@@ -575,8 +575,8 @@ Di seguito mostriamo un esempio di pagina HTML che include una mappa relizzata c
  </script>
 </body>
 \end{lstlisting}
-Il secondo passaggio è quello di creare una mappa interattiva, per farlo occorre collegarsi al sito \textbf{\url{www.mapbox.com}}, che fornisce un portale gratuito per creare o modificare una mappa secondo le caratteristiche che si vogliono.
-Per fare questo occorre registrarsi al sito web fornendo:
+Il secondo passaggio è quello di creare una mappa interattiva. Per farlo occorre collegarsi al sito \textbf{\url{www.mapbox.com}}, che fornisce un portale gratuito per creare o modificare una mappa secondo le caratteristiche che si vogliono.
+Occorre preliminarmente registrarsi al sito web fornendo:
 \begin{itemize}
 	\item Username;
 	\item Cognome;
@@ -584,7 +584,7 @@ Per fare questo occorre registrarsi al sito web fornendo:
 	\item Email;
 	\item Password.
 \end{itemize}
-Una volta effettuato l'accesso bisogna cliccare sul pulsante \textbf{Studio}, situato in alto a destra, poi sul pannello \textbf{Styles} e, infine su \textbf{Create a Style} in questo modo creerà una nuova mappa da poter modellare a seconda delle proprie necessità. In \textbf{Figura \ref{fig:5}} è mostrata la pagina principale del sito web, mentre nella \textbf{Figura \ref{fig:6}} il pannello \textbf{Styles} con i comandi principali.
+Una volta effettuato l'accesso bisogna cliccare sul pulsante \textbf{Studio}, situato in alto a destra, poi sul pannello \textbf{Styles} e, infine su \textbf{Create a Style}: in questo modo verrà creata una nuova mappa da poter modellare a seconda delle proprie necessità. In \textbf{Figura \ref{fig:5}} è mostrata la pagina principale del sito web, mentre nella \textbf{Figura \ref{fig:6}} il pannello \textbf{Styles} con i comandi principali.
 \newpage
 \begin{figure}[htpb]
 	\centering
@@ -598,9 +598,9 @@ Una volta effettuato l'accesso bisogna cliccare sul pulsante \textbf{Studio}, si
 	\caption{Pannello Styles.}
 	\label{fig:6}
 \end{figure}
-Una volta creata la mappa, cliccare sul pannello \textbf{Edit}, in questo modo si aprirà una nuova pagina.
-Sul pannello  a sinistra è indicata la consolle per modellare la mappa, possiamo scegliere i colori delle strade, dell'acqua, della terra e pianure e dello sfondo.\newline
-Sul pannello di destra, invece, è indicato lo zoom e le coordinate, cioè la latitudine e la longitudine. Sistemate tutte le modifiche per confermare il progetto della mappa cliccare sul pulsante \textbf{Publish}.
+Una volta creata la mappa, cliccando sul pannello \textbf{Edit}, si aprirà una nuova pagina.
+Sul pannello a sinistra è indicata la consolle per modellare la mappa: possiamo scegliere i colori delle strade, dell'acqua, della terra e pianure e dello sfondo.\newline
+Sul pannello di destra, invece, è indicato lo zoom e le coordinate, cioè la latitudine e la longitudine. Sistemate tutte le modifiche per confermare il progetto della mappa, occorre cliccare sul pulsante \textbf{Publish}.
 Cliccando sul nome della mappa, nel pannello \textbf{Styles}, a destra è indicato l'indirizzo url per poter pubblicare la mappa.
 In \textbf{Figura \ref{fig:7}} è mostrato la schermata \textbf{Edit}.
 \begin{figure}[ht]
@@ -653,13 +653,13 @@ Il prossimo passaggio è quello di inserire la mappa utilizzando il comando \tex
 \end{lstlisting}
 \end{figure}
 \newpage
-Sul codice precedente per il caricamento della mappa, si nota che nella prima voce è indicato il collegamento ipertestuale della mappa, alla voce \textbf{attribution} sono indicate le licenze, mentre alla voce \textbf{id}, è specificato l'identificativo della nostra mappa, che si ricava dal sito Mapbox alla sezione \textbf{Styles} come mostrato in \textbf{Figura \ref{fig:6}} accanto alla voce Edit.
-Infine alla voce \textbf{accessToken}, si deve indicare quel valore disponibile, sempre nel pannello \textbf{Styles}, a destra. \newline
+Sul codice precedente per il caricamento della mappa, si nota che nella prima voce è indicato il collegamento ipertestuale della mappa, alla voce \textbf{attribution} sono indicate le licenze, mentre alla voce \textbf{id} è specificato l'identificativo della nostra mappa, che si ricava dal sito Mapbox alla sezione \textbf{Styles}, come mostrato in \textbf{Figura \ref{fig:6}} accanto alla voce Edit.
+Infine, alla voce \textbf{accessToken} si deve indicare quel valore disponibile, sempre nel pannello \textbf{Styles}, a destra. \newline
 Seguendo le procedure appena indicate, la mappa verrà visualizzata correttamente nella nostra pagina web.
 
 \subsection{Creazione delle icone, dei markers e dei popups}
 \label{sec:3.2}
-Attraverso il metodo \textbf{L.Icon} è possibile creare un icona che identifica un determinato punto della mappa. Per prima cosa occorre scegliere un'immagine, dopodiché attraverso \textbf{iconUrl} è possibile caricarla specificando il percorso del file; se si dispone anche di un immagine con l'ombra bisogna caricarla con \textbf{shadowUrl} sempre specificando il percorso del file. Poi bisogna specificare la grandezza dell'icona e dell'ombra, attraverso i parametri \textbf{iconSize} e \textbf{shadowSize} come è evidenziato nel codice seguente. Infine è possibile caricare il marker attraverso il metodo \textbf{L.marker}, dove vengono specificate le coordinate.
+Attraverso il metodo \textbf{L.Icon} è possibile creare un icona che identifica un determinato punto della mappa. Per prima cosa occorre scegliere un'immagine, dopodiché attraverso \textbf{iconUrl} è possibile caricarla specificando il percorso del file; se si dispone anche di un'immagine con l'ombra, bisogna caricarla con \textbf{shadowUrl} sempre specificando il percorso del file. Poi bisogna specificare la grandezza dell'icona e dell'ombra, attraverso i parametri \textbf{iconSize} e \textbf{shadowSize}, come è evidenziato nel codice seguente. Infine è possibile caricare il marker attraverso il metodo \textbf{L.marker}, dove vengono specificate le coordinate.
 \begin{figure}[htb]
 \begin{lstlisting}[style=htmlcssjs]
 <body>		
@@ -706,7 +706,7 @@ Una query SPARQL è un insieme di triple "soggetto-predicato-oggetto", però a d
 \end{center}
 
 Nell'esempio proposto il soggetto e l'oggetto sono delle variabili, mentre il predicato è una costante.
-Il risultato di una query SPARQL contro un dataset RDF è una tabella molto simile a quelle utilizzate nei database relazionali in SQL; si tratta di una tabella con una colonna per ogni variabile presente nella query. Ogni riga della tabella rappresenta una sostituzione variabile -> valore tale che, se applicata alle triple indicate nella query fa si che le triple ottenute appartengano al dataset contro cui è eseguita la query.
+Il risultato di una query SPARQL contro un dataset RDF è una tabella molto simile a quelle utilizzate nei database relazionali in SQL; si tratta di una tabella con una colonna per ogni variabile presente nella query. Ogni riga della tabella rappresenta una sostituzione \textit{variabile -> valore} tale che, se applicata alle triple indicate nella query, fa sì che le triple ottenute appartengano al dataset contro cui è eseguita la query.
 
 \subsection{Comandi principali}
 \label{sec:4.1}
@@ -714,7 +714,7 @@ Il linguaggio SPARQL è composto da tre comandi principali:
 \begin{itemize}
 	\item \textbf{PREFIX:} dichiara prefissi e namespace e, come nel Turtle, per
 abbreviare il percorso URI si associa un nome che verrà
-richiamato all'interno di WHERE (ad es gr:offers può essere
+richiamato all'interno di WHERE (ad es., gr:offers può essere
 scritto anche <http://purl.org/goodrelations/v1offers>)
 	\item \textbf{SELECT:} identifica le variabili che verranno visualizzate, sotto forma di tabella, dal risultato dell' interrogazione. È spesso
 accompagnato da *, che seleziona tutte le variabili di una
@@ -813,7 +813,7 @@ Analizzeremo in dettaglio i vocabolari \textbf{Core Location} e \textbf{Organiza
 Il \textbf{Core Location} è un vocabolario utilizzato per rappresentare qualsiasi luogo in termini di nome, di indirizzo o di coordinate. Tale vocabolario fa parte del progetto \textbf{ISA}.\footnote{Interoperability Solutions for European Public Administrations \url{http://ec.europa.eu/isa/}} L'idirizzo URI utilizzato è \url{http://www.w3.org/ns/locn\#} ed usa il prefisso \textbf{locn}. \newline Il vocabolario è composto da tre classi che sono:
 \begin{itemize}
 	\item \textbf{Location}: utilizzata per identificare luoghi, città, stati;  
-	\item \textbf{Address}: utilizzata per gli indirizzi.Questa classe fa riferimento anche ad altre informazioni quali la casella postale, al numero civico, al codice di avviamento postale e così via;
+	\item \textbf{Address}: utilizzata per gli indirizzi. Questa classe fa riferimento anche ad altre informazioni quali la casella postale, al numero civico, al codice di avviamento postale e così via;
 	\item \textbf{Geometry}: fornisce latitudine e longitudine.
 \end{itemize} 
 Di seguito viene mostrato un semplice esempio:
@@ -832,7 +832,7 @@ Di seguito viene mostrato un semplice esempio:
 L'indirizzo URI utilizzato è \url{http://www.w3.org/TR/vocab-org/\#} ed usa il prefisso \textbf{org}.\newline
 La classe principale è \textbf{Organizzation} che rappresenta le organizzazioni in strutture gerarchiche.
 Mentre la classe \textbf{FormalOrganizzation} scompone un'organizzazione che è riconosciuta in tutto il mondo, come ad esempio i governi.
-Per rappresentare un'organizzazione, come ad esempio un dipartimento o unità di supporto, che è parte di una organizzazione più grande si usa la classe \textbf{OrganizationalUnit}.
+Per rappresentare un'organizzazione, come ad esempio un dipartimento o unità di supporto, che è parte di una organizzazione più grande, si usa la classe \textbf{OrganizationalUnit}.
 Organization Ontology estende e utilizza termini da altri vocabolari, riportati nella seguente tabella:
 \begin{table}[!htb]
 \begin{center}				
@@ -859,13 +859,13 @@ Tramite questo endpoint, si fa una specifica interrogazione in SPARQL, attravers
 \subsection{Menù gerarchici}
 \label{sec:5.1}
 Un menu gerarchico è una struttura ad albero che simula l'aspetto e il comportamento della struttura a cartelle e sottocartelle utilizzato in tutti i sistemi operativi. Questo tipo di menù viene utilizzato nella stragrande maggioranza dei siti web proprio perché è facile da implementare e non occupa moltissimo spazio, inoltre in questo modo si possono realizzare strutture annidate e complesse ricche di voci, che sono ideali per l'organizzazione.\newline 
-Nel progetto il menù gerarchico ha lo scopo di raggruppare gli uffici della base di conoscenza relativa alla macrostruttura del Comune di Catania, sotto forma di struttura ad albero gerarchico. Esso è creato dinamicamente, cioè ad ogni valore che viene passato si controlla il genitore e i figli associati.
+Nel progetto il menù gerarchico ha lo scopo di raggruppare gli uffici della base di conoscenza relativa alla macrostruttura del Comune di Catania sotto forma di struttura ad albero gerarchico. Esso è creato dinamicamente, cioè ad ogni valore che viene passato si controlla il genitore e i figli associati.
 Per comprendere meglio elenchiamo i metodi e le classi, realizzati in Javascript, per la creazione del menù:
 \begin{itemize}
-	\item Classe \textbf{Tree}, che implementa un struttura ad albero. La struttura ad albero ha due elementi fondamentali che sono la \textbf{radice}, che ha n nodi che vengono chiamati figli e le \textbf{foglie}, che sono i nodi senza figli. Tutti gli altri nodi vengono chiamati nodi interni.
+	\item Classe \textbf{Tree}, che implementa un struttura ad albero. La struttura ad albero ha due elementi fondamentali che sono la \textbf{radice}, che ha n nodi, che vengono chiamati figli, e le \textbf{foglie}, che sono i nodi senza figli. Tutti gli altri nodi vengono chiamati nodi interni.
 La classe Tree	ha le seguenti variabili:
 \begin{itemize}
-	\item \textbf{value}: può essere qualsiasi valore, in questo progetto la si associa ad un indirizzo URI/IRI o a un nome della gerarchia o a una struttura complessa contenete sia URI che nomi;
+	\item \textbf{value}: può essere qualsiasi valore; in questo progetto la si associa ad un indirizzo URI/IRI o a un nome della gerarchia o a una struttura complessa contenete sia URI che nomi;
 	\item \textbf{children}: un array, contenente i figli di un nodo.
 \end{itemize}
 ed i seguenti metodi:
@@ -896,12 +896,12 @@ i metodi di tale classe sono:
 \end{itemize}	
 Il menù gerarchico nel progetto è creato sfruttando le classi appena elencate, in più è arricchito con due metodi che sono:
 \begin{itemize}
-	\item \textbf{createLiMenu()}, che crea un lista utilizzando i tag:
+	\item \textbf{createLiMenu()}, crea un lista utilizzando i tag:
 	\begin{itemize}
 		\item <ul> definisce una lista non ordinata;
 		\item <li> definisce gli elementi delle liste, è sempre associato al tag <ul>.
 	\end{itemize}
-	\item \textbf{createMenu()}, che crea il menu dinamico.
+	\item \textbf{createMenu()}, crea il menu dinamico.
 \end{itemize}
 Di seguito viene specificato, attraverso lo pseudo-codice, la creazione di tale menu:\newline
 \textbf{Pseudo codice}
@@ -1051,7 +1051,7 @@ xmlhttp.send(querypart);
 \end{lstlisting}
 \end{figure}\newline
 Una volta creato un oggetto di tipo \textbf{getHTTPObject()}, la variabile \textbf{xmlhttp}, con i metodi \textbf{open} e \textbf{send}, si apre e si invia la richiesta al server.\newline
-Con open si posso effettuare due tipi di chiamata. La prima può essere fatta tramite GET, mentre la seconda può essere fatta tramite una chiamata POST. Per una chiamata di tipo POST però bisogna impostare gli header,\footnote{Serie di coppie chiave/valore specifici per uno scambio dati via internet.} attraverso il comando:
+Con open si possono effettuare due tipi di chiamata. La prima può essere fatta tramite GET, mentre la seconda può essere fatta tramite una chiamata POST. Per una chiamata di tipo POST però bisogna impostare gli header,\footnote{Serie di coppie chiave/valore specifici per uno scambio dati via internet.} attraverso il comando:
 \begin{figure}[htb]
 \begin{lstlisting}[style=htmlcssjs]
 xmlhttp.setRequestHeader('Content-type','application/x-www-form-urlencoded')
@@ -1086,7 +1086,7 @@ Tuttavia però tale chiamata non sempre va a buon fine. I browser moderni hanno 
 Tale richiesta viene chiamata richiesta \textbf{Cross-domain}.\footnote{Capitolo \ref{sec:5.4}}
 \subsection{Il problema delle richieste Cross-Domain}
 \label{sec:5.4}
-Quando si effettua un chiamata AJAX verso domini diversi da quello da cui proviene la pagina, i moderni browser applicano una restrizione che impedisce l'esecuzione dello script.
+Quando si effettua una chiamata AJAX verso domini diversi da quello da cui proviene la pagina, i moderni browser applicano una restrizione che impedisce l'esecuzione dello script.
 Una tecnica per aggirare il problema è il \textbf{JSONP},\footnote{JSON with Padding} che consiste nel realizzare una funzione che permetta di inserire nuovi tag <script> all'interno della pagina e una funzione che gestisca i dati ricevuti dal server come mostrato nel seguente codice:
 
 \begin{lstlisting}[style=htmlcssjs]
@@ -1153,8 +1153,8 @@ Git è un sistema di controllo di versione, ciò vuol dire che controlla e gesti
 	\caption{GitHub.}
 	\label{fig:12}
 \end{figure}
-Questo portale web è un mezzo molto potente, perché si può collaborare con altre persone che non si trovano nella stessa sede, in più in caso di malfunzionamento del pc, non si perde il lavoro svolto; infatti è ideale per la stesura di una tesi di laurea.\newline
-Una volta effettuato l'accesso al portale web possiamo creare i \textbf{repository}\footnote{E' un ambiente di un sistema informativo, in cui vengono gestiti i metadati, attraverso tabelle relazionali. Fonte Wikipedia.} e gestirli, come mostrato in \textbf{Figura \ref{fig:13}}.
+Questo portale web è un mezzo molto potente, perché si può collaborare con altre persone che non si trovano nella stessa sede; in più, in caso di malfunzionamento del pc, non si perde il lavoro svolto; infatti è ideale per la stesura di una tesi di laurea.\newline
+Una volta effettuato l'accesso al portale web, possiamo creare i \textbf{repository}\footnote{E' un ambiente di un sistema informativo, in cui vengono gestiti i metadati, attraverso tabelle relazionali. Fonte Wikipedia.} e gestirli, come mostrato in \textbf{Figura \ref{fig:13}}.
 \begin{figure}[!htpb]
 	\centering
 	\includegraphics[scale=0.30]{github2.png}
@@ -1166,7 +1166,7 @@ Bisogna fornire il nome del repository e scegliere se renderlo pubblico o privat
 Una volta creato il repository, bisogna pubblicare il codice su GitHub attraverso un comando Commit eseguito su un Terminale.\footnote{cmd per windows, shell per Linux}
 Per agevolare questo processo e per evitare errori è possibile utilizzare un client grafico, ad esempio, \textbf{SourceTree}.\footnote{\url{https://www.sourcetreeapp.com/}}
 SourceTree è basato su Git e Mercurial e gestisce tutti i repository di GitHub attraverso un'interfaccia semplice.
-Una volta fatta la registrazione fornendo un email e la password è 
+Una volta fatta la registrazione, fornendo un email e la password è 
 possibile creare, clonare, eseguire commit, con un semplice clic.
 \begin{figure}[!htpb]
 	\centering
@@ -1174,7 +1174,7 @@ possibile creare, clonare, eseguire commit, con un semplice clic.
 	\caption{SourceTree.}
 	\label{fig:14}
 \end{figure}
-Per caricare il progetto non bisogna far altro che premere il pulsante \textbf{Clona/Nuovo}, nella schermata successiva fornire il percorso sorgente, cioè quello di GitHub, il percorso di destinazione e cliccare su Clona come mostrato in \textbf{Figura \ref{fig:15}}.
+Per caricare il progetto non bisogna far altro che premere il pulsante \textbf{Clona/Nuovo}, nella schermata successiva fornire il percorso sorgente, cioè quello di GitHub, il percorso di destinazione e cliccare su Clona, come mostrato in \textbf{Figura \ref{fig:15}}.
 \begin{figure}[!htpb]
 	\centering
 	\includegraphics[scale=0.30]{sourcetree2.png}
