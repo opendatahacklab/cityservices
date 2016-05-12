@@ -133,7 +133,7 @@ function createLiMenu(value,children,id){
 		next=document.createElement("LI");
 		next.setAttribute("id", value.getName());
 		a.textContent=value.getName();
-		a.setAttribute('href', "javascript: selectedMarker(\""+value.getName()+"\")");
+		a.setAttribute('href', "index.html?select="+encodeURIComponent(value.getUri()));
 		next.appendChild(a);
 		document.getElementById(id).appendChild(next);
 	}	
@@ -146,7 +146,7 @@ function createLiMenu(value,children,id){
 			current=document.createElement("LI");
 			current.setAttribute("id",children[i].value.getName());
 			a.textContent = children[i].value.getName();
-			a.setAttribute('href', "javascript: selectedMarker(\""+children[i].value.getName()+"\")");
+			a.setAttribute('href', "index.html?select="+encodeURIComponent(children[i].value.getUri()));
 			current.appendChild(a);
 			ul.appendChild(current);
 			}
@@ -156,10 +156,7 @@ function createLiMenu(value,children,id){
 		createLiMenu(children[i].value,children[i].children,ul.getAttribute("id"));
 	}
 }
-//Selected a specific markers
-function selectedMarker(value){
-	document.write(value);
-}
+
 
 //Create Marker
 function createMarker(response,map){
