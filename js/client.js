@@ -1,4 +1,13 @@
 function launch(){
+	var x=location.search.split('?select=');
+	var selectGet;
+	if(x.length<2){
+		selectGet=null;
+	}
+	else{
+		selectGet=decodeURIComponent(x[1]);
+	}
+	
 	//Create Map
 	var map=createMap();
 	//Include knowledge base
