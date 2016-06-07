@@ -7,7 +7,6 @@ function launch(){
 	else{
 		selectGet=decodeURIComponent(x[1]);
 	}
-	
 	//Create Map
 	var map=createMap();
 	//Include knowledge base
@@ -26,12 +25,14 @@ function launch(){
 				"?site locn:geometry ?g .\n"+
 				"?g geo:lat ?lat .\n"+
 				"?g geo:long ?lon .\n"+
-				"?dir rdfs:label ?dir_name .\n"+
-				"optional {?dir foaf:homepage ?dir_homepage} .\n"+
+				"?dir rdfs:label ?dir_name .\n";
+				if(selectGet){
+					query+="?dir org:transitiveSubOrganizationOf <"+selectGet+">.\n"
+				}
+				query+="optional {?dir foaf:homepage ?dir_homepage} .\n"+
 				"optional {?dir foaf:phone ?dir_tel} .\n"+
 				"optional {?dir foaf:mbox ?dir_mail}\n"+
 				"}order by ?site ?dir"  ;
-	
 	var query_menu=
 				"PREFIX org:<http://www.w3.org/ns/org#> \n"+
 
