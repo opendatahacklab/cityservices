@@ -27,7 +27,7 @@ function launch(){
 				"?g geo:long ?lon .\n"+
 				"?dir rdfs:label ?dir_name .\n";
 				if(selectGet){
-					query+="?dir org:transitiveSubOrganizationOf <"+selectGet+">.\n"
+					query+="?dir org:transitiveReflexiveSubOrganizationOf <"+selectGet+">.\n"
 				}
 				query+="optional {?dir foaf:homepage ?dir_homepage} .\n"+
 				"optional {?dir foaf:phone ?dir_tel} .\n"+
@@ -44,6 +44,7 @@ function launch(){
 				"optional { ?child foaf:homepage ?childhomepage .} \n"+
 				"?child rdfs:label ?childlabel .\n"+
 				"} order by ?u";
+	window.alert(query);
 	createSparqlQuery(endpoint,query,map,createMarker);
 	createSparqlQuery(endpoint,query_menu,map,createMenu);
 }
@@ -129,7 +130,7 @@ function createMenu(response,map){
 	document.getElementById("navigation").innerHTML="<ul id=\"nav\"></ul>";
 	createLiMenu(storage.nodes[0].nodetree.value,storage.nodes[0].nodetree.children,"nav");
 }
-//Create Li menù 
+//Create Li menï¿½ 
 function createLiMenu(value,children,id){
 	var node=""
 	var current=""
@@ -306,7 +307,7 @@ function createMap(){
 				maxZoom: 18,
 				attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, '+
 				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, '+
-				'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+				'Imagery ï¿½ <a href="http://mapbox.com">Mapbox</a>',
 				id: 'andreacostazza.ik9ap86i'
 			}).addTo(auxmap);
 	return auxmap
