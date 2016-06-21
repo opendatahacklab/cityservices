@@ -44,7 +44,6 @@ function launch(){
 				"optional { ?child foaf:homepage ?childhomepage .} \n"+
 				"?child rdfs:label ?childlabel .\n"+
 				"} order by ?u";
-	window.alert(query);
 	createSparqlQuery(endpoint,query,map,createMarker);
 	createSparqlQuery(endpoint,query_menu,map,createMenu);
 }
@@ -112,21 +111,10 @@ function createMenu(response,map){
 		if(searchChild === undefined){			
 			searchChild=storage.add(descriptionChild);			
 		}		
-		
 		searchParent.nodetree.addChild(searchChild.nodetree);
 		searchParent.parent= true;
 		searchChild.parent= true;
 	}
-	
-	/*//Example new Tree Node
-	var a=new Description("aaa","nome","ttgg");
-	var b=storage.add(a);
-	
-	document.write("ALL NODES Last:"+ storage.getNodesWithoutParent(0)+"<br><br>")
-	*/
-	
-	//document.getElementById("navigation").innerHTML="<ul id=\"nav\"></ul>";
-	
 	document.getElementById("navigation").innerHTML="<ul id=\"nav\"></ul>";
 	createLiMenu(storage.nodes[0].nodetree.value,storage.nodes[0].nodetree.children,"nav");
 }
@@ -167,8 +155,6 @@ function createLiMenu(value,children,id){
 		createLiMenu(children[i].value,children[i].children,ul.getAttribute("id"));
 	}
 }
-
-
 //Create Marker
 function createMarker(response,map){
 	//Request accept				
@@ -460,4 +446,4 @@ function Tree(value){
 			}
 			return f;
 		}
-	}
+}
