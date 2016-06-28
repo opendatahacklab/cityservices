@@ -1,0 +1,90 @@
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>opendatahacklab - cityservices</title>
+	<link rel="stylesheet" type="text/css" href="../commons/css/odhl.css">
+	<link rel="alternate" type="application/rss+xml" href="rdfevents2rss.php" title="opendatahacklab events feed">
+	<script type="text/javascript" src="http://opendatahacklab.org/sparql_suite/sparql_processor.js"></script>
+	<script type="text/javascript" src="http://opendatahacklab.org/sparql_suite/doap_sparql_processor.js"></script>
+	<link rel="stylesheet" href="./css/leaflet.css"/>
+	<link rel="stylesheet" href="./css/menu.css"/>	
+	<script src="./js/leaflet.js"></script>
+	<script src="./js/client.js"></script>
+	</head>
+	<body>
+	<header class="main-header">
+		<img class="logo" src="../commons/imgs/logo_cog4_ter.png" alt="the opendatahacklab logo">
+		<h1>opendatahacklab - cityservices</h1>
+		<p class="subtitle">THE OPEN DATA HACKING LABORATORY - Powered by 
+			<a href="http://dydra.com"><img alt="dydra.com" src="../commons/imgs/dydra-logo-24pt.png"></a>
+			<a class="wt-tech" target="_blank" href="http://wt-tech.it">WT-TECH</a>
+		</p>
+		<nav>
+			<ol class="breadcrumb">
+				<li><a href="http://opendatahacklab.org/site/index.html">home</a></li>
+				<li><a href="http://opendatahacklab.org/site/projects.html">projects</a></li>
+				<li>cityservices</li>
+			</ol>
+			<a href="https://github.com/opendatahacklab/cityservices" alt="Source Code" title="GitHub repository"><img alt="GitHub" src="../commons/imgs/GitHub-Mark-64px.png"></a>
+			<a href="#data"><img src="../commons/imgs/rdf.png"></a>
+		</nav>
+	</header>
+	<section>
+		<header><h2>INTRODUCTION</h2></header>
+		<p>The project <em>cityservices</em> tests the knowledge base located into the website <a href="http://www.dydra.com">Dydra</a>. 
+		It is a complex code, written in javascript, where you can find an open dataset for macrostructure of Comune di Catania that are modeled following the semantic web.
+		
+		
+		It's also possible to do researches of the dishes with the navigation bar named "Query". 
+		If you select a specific dish, a nationality or both, you will see a dishes list with the selected characteristics.</p>
+	</section>
+	<section>
+	<section>
+		<div id='map'>
+		<div id="loading"><p class="loading">Loading...<p></div>
+		<div id="navigation"></div>
+		</div>					
+				
+		<script type="text/javascript">
+			launch();
+		</script>
+	</section>
+	
+	<header><h2>CONTRIBUTORS</h2></header>
+	<ul>
+		<li>Cristiano Longo</li>
+		<li>Andrea Costazza</li>
+	</ul>
+	</section>
+	
+	<section id="data">
+			<header><h2>Open Data</h2></header>
+			<p>The municipality of Catania provides a <a href="http://opendata.comune.catania.gov.it/dataset/test-geo">dataset
+			<em>Farmacie</em></a> which contains all offices of the city. This dataset is released with
+			no licensing indications, so that it can be considered as released as Public Domain.</p>
+			
+			<p>Such a CSV file, provided by the municipality of Catania, has been 
+			turned into an OWL ontology (in which the <a href="http://www.w3.org/ns/locn">LOCN vocabulary</a>
+			is used) by the <code>csvCatania2PharmaciesOWL.php</code> script (see the Git repository).
+			This script is released under the <a href="http://opensource.org/licenses/LGPL-3.0">LGPL 3.0</a>
+			license, whereas the produced ontology mantains the <a href="http://creativecommons.org/publicdomain/zero/1.0/">CC0</a> license of the origin dataset.</p>
+			
+			<p><code><a href="farmacie.owl">farmacie.owl</a></code></p>
+			
+			<p>Tests on pharmacies has been reported in a different ontology, linked with the
+			former, using the <a href="http://www.w3.org/TR/EARL10-Schema/">EARL</a> vocabulary.
+			This ontology is released under the <a href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+			license.</p>
+			
+			<p><code><a href="comunect.owl">comunect.owl</a></code></p>
+			
+			<p>The <code>farmacie.owl</code> has been then enriched by using the reasoner
+			<a href="https://github.com/complexible/pellet">Pellet</a> (version 2.3.0). Such an enriched ontology, as well as 
+			the  <code>comunect.owl</code> one, are provided together
+			via a sparql endpoint gracefully provided by <a href="http://www.dydra.com">Dydra</a>.</p>
+			
+			<p><a href="http://dydra.com/cristianolongo/comune-di-catania/sparql">SPARQL enpoint of the comunect ontology</a></p> 			
+	</section>
+	
+	</body>
+</html>
