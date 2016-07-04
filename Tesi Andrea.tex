@@ -1209,12 +1209,13 @@ Infine per mandare i file su GitHub bisogna premere il pulsante \textbf{Invia}.
 \label{sec:6.3}
 \textbf{\large menu.css}
 \begin{lstlisting}[style=htmlcssjs]
+
 /*Loading*/
 #loading{
 			/*opacity:0.80;
 			filter:alpha(opacity=80); /* For IE8 and earlier */
 			margin: 0px auto;
-			width:800px;
+			width:1000px;
 			height: 600px;
 			background-color: #e3e3e3;				 
 			z-index: 2;
@@ -1235,7 +1236,7 @@ p.loading{
 /*Stile mappa*/
 #map { 			
 		height: 600px;
-		width: 800px;	
+		width: 1000px;	
 		display: block;
 		margin: 0px auto;
 		text-align: center;
@@ -1251,30 +1252,31 @@ p.loading{
 			visibility: hidden;
 			margin: 0px auto;
 			display: block;
-			position:absolute;
-			top: 20px;
-			left: 30px;
+			position:ab4;
+			top: 0px;
+			left: 0 px;
 			z-index: 1;
 			}
 #nav{
+	font-size: 12px;
 	margin: 0px auto;
 	display: block;
 	position:relative;
 	top: 10px;
-	left: 290px;
+	left: 20px;
 }
 /* CSS Document */
 #nav, #nav ul {	
 	list-style:none;
 	padding:0;
 	margin:0;
-	position:relative;
+	position:absolute;
 }
 #nav li {
 	float:left;
 	position:relative;
 	line-height:2.5em;
-	width:20em;
+	width:30em;
 }
 #nav li ul {
 	position:absolute;
@@ -1286,6 +1288,7 @@ p.loading{
 	margin-top:-1.5em;
 	margin-left:7em;
 }
+/* ******************************************************************* */
 /* SHOW SUBMENU  1 */
 #nav li:hover ul, #nav li.over ul {
 	display:block;
@@ -1297,6 +1300,7 @@ p.loading{
 #nav ul li:hover ul, #nav ul li.over ul {
 	display:block;
 }
+/* ******************************************************************* */
 /* STYLING UP THE LINKS */
 #nav a {
 	display:block;
@@ -1330,6 +1334,9 @@ p.loading{
 	border-left:1px solid #fff;
 	background:#005DE0;
 	}
+
+/* ******************************************************************* */
+
 #nav {
 	z-index:1;
 }
@@ -1345,6 +1352,14 @@ p.loading{
 
 \begin{lstlisting}[style=htmlcssjs]
 function launch(){
+	var x=location.search.split('?select=');
+	var selectGet;
+	if(x.length<2){
+		selectGet=null;
+	}
+	else{
+		selectGet=decodeURIComponent(x[1]);
+	}
 	//Create Map
 	var map=createMap();
 	//Include knowledge base
@@ -1363,12 +1378,14 @@ function launch(){
 				"?site locn:geometry ?g .\n"+
 				"?g geo:lat ?lat .\n"+
 				"?g geo:long ?lon .\n"+
-				"?dir rdfs:label ?dir_name .\n"+
-				"optional {?dir foaf:homepage ?dir_homepage} .\n"+
+				"?dir rdfs:label ?dir_name .\n";
+				if(selectGet){
+					query+="?dir org:transitiveReflexiveSubOrganizationOf <"+selectGet+">.\n"
+				}
+				query+="optional {?dir foaf:homepage ?dir_homepage} .\n"+
 				"optional {?dir foaf:phone ?dir_tel} .\n"+
 				"optional {?dir foaf:mbox ?dir_mail}\n"+
 				"}order by ?site ?dir"  ;
-	
 	var query_menu=
 				"PREFIX org:<http://www.w3.org/ns/org#> \n"+
 
@@ -1447,7 +1464,6 @@ function createMenu(response,map){
 		if(searchChild === undefined){			
 			searchChild=storage.add(descriptionChild);			
 		}		
-		
 		searchParent.nodetree.addChild(searchChild.nodetree);
 		searchParent.parent= true;
 		searchChild.parent= true;
@@ -1469,7 +1485,7 @@ function createLiMenu(value,children,id){
 		next=document.createElement("LI");
 		next.setAttribute("id", value.getName());
 		a.textContent=value.getName();
-		a.setAttribute('href', "javascript: selectedMarker(\""+value.getName()+"\")");
+		a.setAttribute('href', "index.html?select="+encodeURIComponent(value.getUri()));
 		next.appendChild(a);
 		document.getElementById(id).appendChild(next);
 	}	
@@ -1482,7 +1498,7 @@ function createLiMenu(value,children,id){
 			current=document.createElement("LI");
 			current.setAttribute("id",children[i].value.getName());
 			a.textContent = children[i].value.getName();
-			a.setAttribute('href', "javascript: selectedMarker(\""+children[i].value.getName()+"\")");
+			a.setAttribute('href', "index.html?select="+encodeURIComponent(children[i].value.getUri()));
 			current.appendChild(a);
 			ul.appendChild(current);
 			}
@@ -1492,11 +1508,6 @@ function createLiMenu(value,children,id){
 		createLiMenu(children[i].value,children[i].children,ul.getAttribute("id"));
 	}
 }
-//Selected a specific markers
-function selectedMarker(value){
-	document.write(value);
-}
-
 //Create Marker
 function createMarker(response,map){
 	//Request accept				
@@ -1635,7 +1646,7 @@ function createMap(){
 				maxZoom: 18,
 				attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, '+
 				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, '+
-				'Imagery c <a href="http://mapbox.com">Mapbox</a>',
+				'Imagery <a href="http://mapbox.com">Mapbox</a>',
 				id: 'andreacostazza.ik9ap86i'
 			}).addTo(auxmap);
 	return auxmap
@@ -1788,8 +1799,7 @@ function Tree(value){
 			}
 			return f;
 		}
-	}
-
+}
 \end{lstlisting}
 \newpage 
 
@@ -1798,6 +1808,8 @@ function Tree(value){
 \section{Siti Utili}
 
 \begin{itemize}
+	\item \url{http://www.opendatahacklab.org/site/projects.html}
+	\item \url{https://github.com/opendatahacklab/cityservices}
 	\item \url{https://it.wikipedia.org/wiki/Pagina_principale}
 	\item \url{http://www.w3.org/}
 	\item \url{https://www.w3.org/ns/locn}
